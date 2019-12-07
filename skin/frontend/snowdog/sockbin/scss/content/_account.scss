@@ -1,0 +1,204 @@
+
+// =============================================
+// Customer Register
+// =============================================
+
+.account-create {
+	@include clearfix-extended();
+	margin-bottom: 20px;
+
+	&__title {
+		margin-bottom: $trim;
+		text-align: center;
+	}
+
+	&__heading {
+		color: $c-blue;
+		font-size: 52px;
+		font-weight: 700;
+	}
+
+	&__coupon {
+		max-width: 300px;
+
+		p {
+			font-size: 16px;
+		}
+
+		ul {
+			list-style: disc;
+			margin-left: 20px;
+			padding-left: 20px;
+
+			li {
+				margin-bottom: 20px;
+			}
+		}
+
+		@include bp(max-width, $bp-large) {
+			margin: 0 auto;
+		}
+	}
+
+	&__newsletter-label {
+		background-color: transparent;
+	}
+
+	&__form {
+		max-width: 360px;
+		margin-left: 140px;
+
+		@include bp(max-width, $bp-large) {
+			margin-left: 0;
+			margin: 0 auto;
+		}
+	}
+
+	&__left,
+	&__right {
+		float: left;
+		width: 50%;
+
+		@include bp(max-width, $bp-large) {
+			float: none;
+			padding: 0 20px 0 20px;
+			width: 100%;
+		}
+	}
+
+	&__left {
+		border-right: 1px solid #dadada;
+		padding-right: $trim*2;
+		@include bp(max-width, $bp-large) {
+			padding-right: 0;
+			border-right: 0;
+		}
+	}
+
+	&__right {
+		padding-left: $trim*2;
+		@include bp(max-width, $bp-large) {
+			padding-left: 0;
+		}
+	}
+
+
+	p {
+		margin-bottom: 20px;
+		line-height: 1.4;
+	}
+
+	strong {
+		color: $c-black;
+	}
+
+	ul {
+		padding-left: 20px;
+
+		li {
+			margin-bottom: 20px;
+		}
+	}
+
+	h3 {
+		margin: 20px 0;
+	}
+	
+	p.required,
+	p.form-instructions,
+	.page-title {
+		display: none;
+	}
+
+	.spam {
+		font-size: 18px;
+		margin-top: 20px;
+		padding-left: 20px;
+	}
+	
+	.fieldset,
+	.form-list {
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	.scaffold-form {
+
+		.form-list {
+			label {
+				font-weight: 700;
+				font-size: 16px;
+				color: $c-black;
+				width: auto;
+			}
+
+			.field,
+			.wide,
+			.control {
+				margin-bottom: 15px;
+			}
+			
+			.input-box {
+				padding-top: 0;
+
+				input[type=email],
+				input[type=search],
+				input[type=number],
+				input[type=password],
+				input[type=tel],
+				input[type=text] {
+					height: 50px;
+					max-width: 100%;
+					width: 100%;
+				}
+			}
+
+			.newsletter-checkbox {
+				margin-left: 0;
+			}
+
+			.newsletter-label {
+				background-color: transparent;
+				padding: 6px 10px 6px 20px;
+			}
+		}
+
+		.buttons-set {
+			border: 0;
+			margin: 20px 0;
+			padding: 0;
+			text-align: center;
+
+			.button {
+				float: none;
+				height: 50px;
+				font-size: 16px;
+				padding: 10px 25px;
+			}
+		}
+	}
+
+	.messages,
+	.messages ul {
+		padding-left: 0;
+		margin-bottom: 0;
+	}
+}
+
+/* ============================================ *
+ * Customer Account Table Order Items
+ * ============================================ */
+
+body.customer-account {
+    .data-table td a {
+    	color: #6b6b6b;
+        font-weight: 700;
+        font-size: inherit;
+        text-transform: none;
+        text-decoration: underline;
+
+        &:hover {
+        	color: $c-blue;
+        }
+    }
+}

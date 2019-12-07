@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<layout>
+    <snowamazonproducts_inject_tab>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>amazon</name>
+                <block>snowamazonproducts/adminhtml_catalog_product_edit_tab</block>
+            </action>
+        </reference>
+    </snowamazonproducts_inject_tab>
+
+    <adminhtml_catalog_product_edit>
+        <update handle="snowamazonproducts_inject_tab"/>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_new>
+        <update handle="snowamazonproducts_inject_tab" />
+    </adminhtml_catalog_product_new>
+    
+    <adminhtml_catalog_product_amazon>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="snowamazonproducts/adminhtml_catalog_product_edit_tab_custom" name="catalog.product.edit.tab.custom"/>
+            <block type="adminhtml/widget_grid_serializer" name="custom_grid_serializer">
+                <reference name="custom_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.custom</grid_block_name>
+                        <data_callback>getSelectedCustomProducts</data_callback>
+                        <hidden_input_name>links[custom]</hidden_input_name>
+                        <reload_param_name>products_custom</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_amazon>
+
+    <adminhtml_catalog_product_amazongrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="snowamazonproducts/adminhtml_catalog_product_edit_tab_custom" name="catalog.product.edit.tab.custom"/>
+        </block>
+    </adminhtml_catalog_product_amazongrid>
+
+    <adminhtml_amazonskus_index>
+        <reference name="content">
+            <block type="snowamazonproducts/adminhtml_amazonskus_edit" name="snowamazonproducts_amazonskus" />
+        </reference>
+    </adminhtml_amazonskus_index>
+</layout>

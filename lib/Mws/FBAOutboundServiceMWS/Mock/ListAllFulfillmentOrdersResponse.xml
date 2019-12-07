@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListAllFulfillmentOrdersResponse xmlns="http://mws.amazonaws.com/FulfillmentOutboundShipment/2010-10-01/">
+  <ListAllFulfillmentOrdersResult>
+    <NextToken>string</NextToken>
+    <!--Optional:-->
+    <FulfillmentOrders>
+      <!--1 or more repetitions:-->
+      <member>
+        <SellerFulfillmentOrderId>string</SellerFulfillmentOrderId>
+        <DisplayableOrderId>string</DisplayableOrderId>
+        <DisplayableOrderDateTime>2008-09-29T01:49:45</DisplayableOrderDateTime>
+        <DisplayableOrderComment>string</DisplayableOrderComment>
+        <ShippingSpeedCategory>string</ShippingSpeedCategory>
+        <DestinationAddress>
+          <Name>string</Name>
+          <Line1>string</Line1>
+          <!--Optional:-->
+          <Line2>string</Line2>
+          <!--Optional:-->
+          <Line3>string</Line3>
+          <!--Optional:-->
+          <DistrictOrCounty>string</DistrictOrCounty>
+          <!--Optional:-->
+          <City>string</City>
+          <StateOrProvinceCode>string</StateOrProvinceCode>
+          <CountryCode>string</CountryCode>
+          <!--Optional:-->
+          <PostalCode>string</PostalCode>
+          <!--Optional:-->
+          <PhoneNumber>string</PhoneNumber>
+        </DestinationAddress>
+        <!--Optional:-->
+        <FulfillmentPolicy>string</FulfillmentPolicy>
+        <!--Optional:-->
+        <FulfillmentMethod>string</FulfillmentMethod>
+        <ReceivedDateTime>2014-09-18T23:18:33</ReceivedDateTime>
+        <FulfillmentOrderStatus>string</FulfillmentOrderStatus>
+        <StatusUpdatedDateTime>2006-08-19T17:27:14+00:00</StatusUpdatedDateTime>
+        <!--Optional:-->
+        <NotificationEmailList>
+          <!--1 or more repetitions:-->
+          <member>string</member>
+        </NotificationEmailList>
+      </member>
+    </FulfillmentOrders>
+  </ListAllFulfillmentOrdersResult>
+  <ResponseMetadata>
+    <RequestId>string</RequestId>
+  </ResponseMetadata>
+</ListAllFulfillmentOrdersResponse>

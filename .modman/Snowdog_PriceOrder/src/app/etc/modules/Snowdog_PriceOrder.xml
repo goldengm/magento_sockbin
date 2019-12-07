@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_PriceOrder>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Snowdog_PriceOrder>
+    </modules>
+</config>

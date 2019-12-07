@@ -1,0 +1,77 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product description template
+ *
+ * @see Mage_Catalog_Block_Product_View_Description
+ */
+$product = $this->getProduct();
+$bulletTitle = $product->getData('bullet_title');
+$bullet1 = $product->getData('bullet1');
+$bullet2 = $product->getData('bullet2');
+$bullet3 = $product->getData('bullet3');
+$bullet4 = $product->getData('bullet4');
+$bullet5 = $product->getData('bullet5');
+$hasBullets = false;
+?>
+<?php /* If there are no bullets fields, get the description */ ?>
+<?php if(!$bulletTitle && !$bullet1 && !$bullet2 && !$bullet3 && !$bullet4 && !$bullet5): ?>
+    <?php $_description = $this->getProduct()->getDescription(); ?>
+    <?php if ($_description): ?>
+        <h2><?php echo $this->__('Details') ?></h2>
+        <div class="std">
+            <?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), $_description, 'description') ?>
+        </div>
+    <?php endif; ?>
+<?php else: ?>
+        <div class="std">
+            <?php if($bulletTitle): ?>
+                <p>
+                    <span style="font-size: xx-large;">
+                        <strong><?php echo $bulletTitle; ?></strong>
+                    </span>
+                </p>
+            <?php endif; ?>
+            <ul>
+                <?php if($bullet1): ?>
+                <li><span style="font-size: x-large"><?php echo $bullet1; ?></span></li>
+                <?php endif; ?>
+                <?php if($bullet2): ?>
+                <li><span style="font-size: x-large"><?php echo $bullet2; ?></span></li>
+                <?php endif; ?>
+                <?php if($bullet3): ?>
+                <li><span style="font-size: x-large"><?php echo $bullet3; ?></span></li>
+                <?php endif; ?>
+                <?php if($bullet4): ?>
+                <li><span style="font-size: x-large"><?php echo $bullet4; ?></span></li>
+                <?php endif; ?>
+                <?php if($bullet5): ?>
+                <li><span style="font-size: x-large"><?php echo $bullet5; ?></span></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+<?php endif; ?>

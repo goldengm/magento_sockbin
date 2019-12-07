@@ -1,0 +1,72 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+$_item = $this->getItem();
+$sku  = $_item->getData('skumanagement_parent_sku') ?: $_item->getSku();
+$parentQty  = $_item->getData('skumanagement_parent_qty') ?: $_item->getQtyOrdered();
+$additional = $_item->getData('skumanagement_parent_additional');
+$product    = Mage::getModel('catalog/product')->loadByAttribute('sku', $sku);
+
+if ($product) {
+    $productName = $product->getName();
+} else {
+    $productName = $_item->getName();
+}
+?>
+<tbody>
+    <tr>
+        <td class="cell-content product-info">
+            <p class="product-name"><?php echo $this->escapeHtml($productName) ?></p>
+            <?php if ($this->getItemOptions()): ?>
+                <dl style="margin:0; padding:0;">
+                    <?php foreach ($this->getItemOptions() as $option): ?>
+                        <dt><strong><em><?php echo $option['label'] ?></em></strong></dt>
+                        <dd style="margin:0; padding:0 0 0 9px;"><?php echo nl2br($option['value']) ?></dd>
+                    <?php endforeach; ?>
+                </dl>
+            <?php elseif ($additional):
+                $additionalUns = unserialize($additional);
+                $_options = isset($additionalUns['attributes_info']) ? $additionalUns['attributes_info'] : '';
+
+                foreach ($_options as $_option) {
+                    ?>
+                    <dl style="margin:0; padding:0;">
+                        <dt><strong><em><?php echo $this->escapeHtml($_option['label']) . ': ' ?></strong></em></dt>
+                        <?php echo nl2br($_option['value']) ?>
+                    </dl>
+                <?php } ?>
+            <?php endif; ?>
+            <?php $addInfoBlock = $this->getProductAdditionalInformationBlock(); ?>
+            <?php if ($addInfoBlock) :?>
+                <?php echo $addInfoBlock->setItem($_item->getOrderItem())->toHtml(); ?>
+            <?php endif; ?>
+            <?php echo $this->escapeHtml($_item->getDescription()) ?>
+        </td>
+        <td class="cell-content align-center"><?php echo $this->escapeHtml($sku) ?></td>
+        <td class="cell-content align-right"><?php echo $parentQty*1 ?></td>
+    </tr>
+</tbody>

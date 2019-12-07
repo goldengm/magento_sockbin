@@ -1,0 +1,42 @@
+<?php
+    /** @var $this Mage_Catalog_Block_Layer_View */
+    $filters = $this->getFilters();
+    $_filters = $this->getFilters();
+?>
+
+<?php if ($this->canShowBlock()): ?>
+    <div class="product-fields-wrap">
+        <div class="container clearfix">
+            <div class="product-fields clearfix">
+            <?php if($this->canShowOptions()): ?>
+                <?php
+                    $open  = $this->__('Refine Your Search');
+                    $close = $this->__('Close');
+                ?>
+                <button class="button refine-search" data-open="<?php echo $open; ?>" data-close="<?php echo $close; ?>"><?php echo $open; ?></button>
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                    <?php if($_filter->getItemsCount() && $_filter->getFilterOptions()->getData('code') != 'category'): ?>
+                        <?php if($_filter->getFilterOptions()->getData('code') == "gender" && Mage::registry('current_category')): ?>
+                        <?php continue; ?>
+                        <?php endif; ?>
+                        <div class="product-field product-field--col">
+                            <div class="block-title"><?php echo $this->__($_filter->getName()); ?></div>
+                            <label class="select-fancy select-fancy--blue">
+                                <select
+                                    name="<?php echo $_filter->getFilterOptions()->getData('code') ?>"
+                                    id="<?php echo $_filter->getFilterOptions()->getData('code') ?>"
+                                    class="category-filter-selector"
+                                    onchange="window.location.href=jQuery(this).val()"
+                                >
+                                    <?php echo $_filter->getHtml() ?>
+                                </select>
+                            </label>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

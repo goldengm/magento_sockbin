@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_PriceOrder>
+            <version>0.1.0</version>
+        </Snowdog_PriceOrder>
+    </modules>
+    <global>
+        <blocks>
+            <snowpriceorder>
+                <class>Snowdog_PriceOrder_Block</class>
+            </snowpriceorder>
+            <catalog>
+                <rewrite>
+                    <product_list_toolbar>Snowdog_PriceOrder_Block_Rewrite_Catalog_Product_List_Toolbar</product_list_toolbar>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <models>
+            <catalog>
+                <rewrite>
+                    <config>Snowdog_PriceOrder_Model_Rewrite_Catalog_Config</config>
+                </rewrite>
+            </catalog>
+        </models>
+    </global>
+</config>

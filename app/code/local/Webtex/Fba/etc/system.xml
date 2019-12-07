@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webtex
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled
+ * with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.webtexsoftware.com/LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@webtexsoftware.com and we will send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to http://www.webtexsoftware.com for more information,
+ * or contact us through this email: info@webtexsoftware.com.
+ *
+ * @category   Webtex
+ * @package    Webtex_Fba
+ * @copyright  Copyright (c) 2011 Webtex Solutions, LLC (http://www.webtexsoftware.com/)
+ * @license    http://www.webtexsoftware.com/LICENSE.txt End-User License Agreement
+ */
+-->
+<!--<config>-->
+    <!--<sections>-->
+        <!--<fba translate="label">-->
+            <!--<label>Fulfillment by Amazon</label>-->
+            <!--<tab>webtex</tab>-->
+            <!--<frontend_type>text</frontend_type>-->
+            <!--<sort_order>20</sort_order>-->
+            <!--<show_in_default>1</show_in_default>-->
+            <!--<show_in_website>1</show_in_website>-->
+            <!--<show_in_store>1</show_in_store>-->
+            <!--<groups>-->
+                <!--<mws_settings translate="label">-->
+                    <!--<label>Fulfillment by Amazon</label>-->
+                    <!--<frontend_type>text</frontend_type>-->
+                    <!--<sort_order>10</sort_order>-->
+                    <!--<show_in_default>1</show_in_default>-->
+                    <!--<show_in_website>1</show_in_website>-->
+                    <!--<show_in_store>1</show_in_store>-->
+                    <!--<fields>-->
+                        <!--<shipping_title translate="label comment">-->
+                            <!--<label>Shipping Title</label>-->
+                            <!--<comment>title for FBA shipping methods on the frontend</comment>-->
+                            <!--<frontend_type>text</frontend_type>-->
+                            <!--<sort_order>80</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<backend_model>fba/config_shipping</backend_model>-->
+                        <!--</shipping_title>-->
+                    <!--</fields>-->
+                <!--</mws_settings>-->
+                <!--<different_marketplaces translate="label">-->
+                    <!--<label>Different Marketplaces in One Order</label>-->
+                    <!--<frontend_type>text</frontend_type>-->
+                    <!--<sort_order>20</sort_order>-->
+                    <!--<show_in_default>1</show_in_default>-->
+                    <!--<show_in_website>1</show_in_website>-->
+                    <!--<show_in_store>1</show_in_store>-->
+                    <!--<fields>-->
+                        <!--<mode translate="label comment">-->
+                            <!--<label>Mode</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<sort_order>10</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<source_model>fba/config_source_multiMarketMode</source_model>-->
+                        <!--</mode>-->
+                        <!--<frontend_message>-->
+                            <!--<label>Frontend error message</label>-->
+                            <!--<frontend_type>textarea</frontend_type>-->
+                            <!--<sort_order>20</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<depends>-->
+                                <!--<mode>0</mode>-->
+                            <!--</depends>-->
+                        <!--</frontend_message>-->
+                    <!--</fields>-->
+                <!--</different_marketplaces>-->
+                <!--<crontasks translate="label">-->
+                    <!--<label>Cron Tasks Frequency Settings</label>-->
+                    <!--<frontend_type>text</frontend_type>-->
+                    <!--<sort_order>30</sort_order>-->
+                    <!--<show_in_default>1</show_in_default>-->
+                    <!--<show_in_website>0</show_in_website>-->
+                    <!--<show_in_store>0</show_in_store>-->
+                    <!--<fields>-->
+                        <!--<checkorder translate="label comment">-->
+                            <!--<label>Check orders changes</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<comment>None - manual check</comment>-->
+                            <!--<backend_model>fba/config_cron_backend_order</backend_model>-->
+                            <!--<source_model>fba/config_cron_source_frequency</source_model>-->
+                            <!--<sort_order>10</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>0</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+                        <!--</checkorder>-->
+                        <!--<checkfrequency translate="label comment">-->
+                            <!--<label>Qty check frequency</label>-->
+                            <!--<comment>None - manual check</comment>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<backend_model>fba/config_cron_backend_qty</backend_model>-->
+                            <!--<source_model>fba/config_cron_source_frequency</source_model>-->
+                            <!--<sort_order>20</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>0</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+                        <!--</checkfrequency>-->
+                        <!--<send_queue translate="label comment">-->
+                            <!--<label>Send Queue Frequency</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<backend_model>fba/config_cron_backend_queue</backend_model>-->
+                            <!--<source_model>fba/config_cron_source_queue_frequency</source_model>-->
+                            <!--<sort_order>30</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>0</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+                        <!--</send_queue>-->
+                    <!--</fields>-->
+                <!--</crontasks>-->
+            <!--</groups>-->
+        <!--</fba>-->
+    <!--</sections>-->
+<!--</config>-->
+

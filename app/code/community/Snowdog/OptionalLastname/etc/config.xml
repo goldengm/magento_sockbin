@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_OptionalLastname>
+            <version>0.2.0</version>
+        </Snowdog_OptionalLastname>
+    </modules>
+
+    <global>
+        <resources>
+            <snowoptionallastname_setup>
+                <setup>
+                    <module>Snowdog_OptionalLastname</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </snowoptionallastname_setup>
+        </resources>
+    </global>
+</config>

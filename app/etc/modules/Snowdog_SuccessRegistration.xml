@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Snowdog_SuccessRegistration>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Snowdog_SuccessRegistration>
+    </modules>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category	Sockbin
+ * @package		Sockbin_Reports2
+ * @author		Sockbin
+ * @copyright	Copyright 2014 Sockbin
+ */
+ -->
+<config>
+    <modules>
+        <Sockbin_Reports2>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sockbin_Reports2>
+    </modules>
+</config>

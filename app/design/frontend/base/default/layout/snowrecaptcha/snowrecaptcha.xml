@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_category_layered>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/snowplusminus/plusminus.js</name>
+            </action>
+        </reference>
+    </catalog_category_layered>
+
+    <cms_page>
+        <reference name="head">
+            <block type="core/text" name="google_recaptcha">
+                <action method="setText"><text><![CDATA[<script src="https://www.google.com/recaptcha/api.js"></script>]]></text></action>
+            </block>
+        </reference>
+    </cms_page>
+</layout>

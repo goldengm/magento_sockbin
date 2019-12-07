@@ -1,0 +1,9 @@
+#Snowdog_SideMinicart
+/src/app/code/local/Snowdog/SideMinicart  /app/code/local/Snowdog/SideMinicart
+/src/app/etc/modules/Snowdog_SideMinicart.xml  /app/etc/modules/Snowdog_SideMinicart.xml
+/src/app/design/frontend/base/default/layout/sideminicart.xml  /app/design/frontend/base/default/layout/sideminicart.xml
+/src/app/design/frontend/base/default/template/sideminicart  /app/design/frontend/base/default/template/sideminicart
+/src/skin/frontend/base/default/css/side_minicart.css  /skin/frontend/base/default/css/side_minicart.css
+/src/skin/frontend/base/default/scss/module/_side_minicart.scss	/skin/frontend/base/default/scss/module/_side_minicart.scss
+/src/skin/frontend/base/default/scss/side_minicart.scss	/skin/frontend/base/default/scss/side_minicart.scss
+/src/skin/frontend/base/default/js/side_minicart  /skin/frontend/base/default/js/side_minicart

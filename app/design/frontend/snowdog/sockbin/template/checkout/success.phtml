@@ -1,0 +1,137 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/* @var $order Mage_Sales_Model_Order */
+$order = Mage::getSingleton('sales/order')
+    ->loadByIncrementId(
+        Mage::getSingleton('checkout/session')
+            ->getLastRealOrderId()
+    );
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Thank You') ?><span>!</span></h1>
+</div>
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<h2 class="sub-title"><?php echo $this->__('You have just completed your purchase.') ?></h2>
+
+<?php if ($this->getOrderId()):?>
+    
+    <?php if ($this->getCanViewOrder()) :?>
+        <?php $printUrl = $this->getUrl('sales/order/print/order_id/' . $order->getId()); ?>
+        <p class="order-text"><?php echo $this->__('Your Order Number is: %s', sprintf('<strong>%s</strong>', $this->escapeHtml($this->getOrderId()))) ?> + <?php echo $this->__('Your %s', sprintf('<a href="%s" target="_blank">%s</a>', $printUrl, $this->__('PDF Receipt'))); ?></p>
+    <?php  else :?>
+        <p class="order-text"><?php echo $this->__('Your Order Number is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+    <?php endif;?>
+
+    <img class="socks" src="<?php echo $this->getSkinUrl('images/socks.png'); ?>" alt="<?php echo $this->__('Socks'); ?>" />
+
+
+    <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+        <h4><?php echo $this->__('If you’d like to...'); ?></h4>
+        <p><?php echo $this->__('» Keep track of your order history,'); ?></p>
+        <p><?php echo $this->__('» Save payment info for future purchases,'); ?></p>
+        <p><?php echo $this->__('» And checkout faster...'); ?></p>
+        
+        <div class="sockbin-password">
+            <h4><?php echo $this->__('Enter your password below,'); ?></h4>
+            <p><?php echo $this->__('and we’ll setup everything for you:'); ?></p>
+
+            <form action="<?php echo Mage::helper('snowsuccessregistration')->getSuccessRegistrationFormUrl(); ?>" method="POST">
+                <input type="password" name="sockbin_password" placeholder="<?php echo $this->__('Your Sockbin Password'); ?>" />
+                <button type="submit" class="button button--green"><?php echo $this->__('Save'); ?></button>
+            </form>
+        </div>
+        
+        <div class="sockbin-newsletter">
+            <input type="checkbox" name="sockbin_newsletter">
+            <label><?php echo $this->__('And subscribe me to the newsletter'); ?></label>
+        </div>
+    <?php endif; ?>
+
+    <p class="h3"><?php echo $this->__('Enjoy Your Socks!'); ?></p>
+    
+<?php endif;?>
+
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+    <p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+    <ul class="disc">
+        <?php foreach($profiles as $profile):?>
+        <?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+            <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+        <?php endforeach;?>
+    </ul>
+<?php endif;?>
+
+<!-- BEGIN: NSG_GUARANTEE -->
+<span id="_GUARANTEE_GuaranteeSpan"></span>
+<script type="text/javascript" src="//nsg.symantec.com/Web/Seal/gjs.aspx?SN=955973498"></script>
+<script type="text/javascript">
+    if (window._GUARANTEE && _GUARANTEE.Loaded) {
+        _GUARANTEE.Hash = "dboRyPvallfMX%2F5qdl1XNw7DGoUwmedE8Gv9Kilz%2BMOjQrvH5pVALGscZ8ND0viNaQylh970ISJFNW8VTsPweg%3D%3D";
+        _GUARANTEE.Guarantee.order = "<?php echo $order->getIncrementId(); ?>";
+        _GUARANTEE.Guarantee.subtotal = "<?php echo $order->getSubtotal(); ?>";
+        _GUARANTEE.Guarantee.currency = "<?php echo $order->getOrderCurrencyCode(); ?>";
+        _GUARANTEE.Guarantee.email = "<?php echo $order->getCustomerEmail(); ?>";
+        _GUARANTEE.WriteGuarantee("JavaScript", "_GUARANTEE_GuaranteeSpan");
+    }
+</script>
+<!-- END: NSG_GUARANTEE -->
+
+<?php if ($order->getIncrementId()) { ?>
+<!-- Google Code for Checkout Complete Conversion Page -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 987546399;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "Q_2PCIGyvQgQn4bz1gM";
+    var google_conversion_order_id = "<?php echo $order->getIncrementId(); ?>";
+    var google_conversion_value = <?php echo $order->getGrandTotal(); ?>;
+    var google_conversion_currency = "USD";
+    var google_remarketing_only = false;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1"
+             width="1"
+             style="border-style:none;"
+             alt=""
+             src="//www.googleadservices.com/pagead/conversion/987546399/?value=<?php echo $order->getGrandTotal(); ?>&amp;currency_code=USD&amp;label=Q_2PCIGyvQgQn4bz1gM&amp;guid=ON&amp;oid=<?php echo $order->getIncrementId(); ?>&amp;script=0"
+        />
+    </div>
+</noscript>
+<?php } ?>
+<!-- END Google Code for Checkout Complete Conversion Page -->

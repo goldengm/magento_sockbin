@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_SkuManagement>
+            <active>true</active>
+            <codePool>local</codePool>
+            <version>0.1.0</version>
+        </Snowdog_SkuManagement>
+    </modules>
+</config>

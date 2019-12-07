@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_AjaxNewsletter>
+            <version>0.1.0</version>
+        </Snowdog_AjaxNewsletter>
+    </modules>
+    <frontend>
+        <routers>
+            <snowdog_subscriber>
+                <use>standard</use>
+                <args>
+                    <module>Snowdog_AjaxNewsletter</module>
+                    <frontName>snownewsletter</frontName>
+                </args>
+            </snowdog_subscriber>
+        </routers>
+    </frontend>
+</config>

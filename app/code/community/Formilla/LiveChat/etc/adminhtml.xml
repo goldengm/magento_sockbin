@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <formilla_livechat>
+                        <children>
+                            <livechat>
+                                <title>LiveChat</title>
+                                <sort_order>50</sort_order>
+                            </livechat>
+                        </children>    
+                    </formilla_livechat>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <livechat>
+                                        <title>Formilla LiveChat</title>
+                                    </livechat>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

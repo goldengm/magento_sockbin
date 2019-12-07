@@ -1,0 +1,23 @@
+/src/app/code/community/AW/Blog                                 /app/code/community/AW/Blog
+/src/app/design/adminhtml/default/default/layout/aw_blog.xml    /app/design/adminhtml/default/default/layout/aw_blog.xml
+/src/app/design/adminhtml/default/default/template/aw_blog      /app/design/adminhtml/default/default/template/aw_blog
+/src/app/design/frontend/base/default/layout/aw_blog.xml        /app/design/frontend/base/default/layout/aw_blog.xml
+/src/app/design/frontend/base/default/template/aw_blog          /app/design/frontend/base/default/template/aw_blog
+/src/app/design/frontend/rwd/default/layout/aw_blog.xml         /app/design/frontend/rwd/default/layout/aw_blog.xml
+/src/app/design/frontend/rwd/default/template/aw_blog           /app/design/frontend/rwd/default/template/aw_blog
+/src/app/etc/modules/AW_Blog.xml                                /app/etc/modules/AW_Blog.xml
+/src/app/locale/cs_CZ/AW_Blog.csv                               /app/locale/cs_CZ/AW_Blog.csv
+/src/app/locale/de_DE/AW_Blog.csv                               /app/locale/de_DE/AW_Blog.csv
+/src/app/locale/en_GB/AW_Blog.csv                               /app/locale/en_GB/AW_Blog.csv
+/src/app/locale/en_US/AW_Blog.csv                               /app/locale/en_US/AW_Blog.csv
+/src/app/locale/fr_FR/AW_Blog.csv                               /app/locale/fr_FR/AW_Blog.csv
+/src/app/locale/nl_NL/AW_Blog.csv                               /app/locale/nl_NL/AW_Blog.csv
+/src/app/locale/ru_RU/AW_Blog.csv                               /app/locale/ru_RU/AW_Blog.csv
+/src/lib/recaptcha                                              /lib/recaptcha
+/src/skin/adminhtml/default/default/aw_blog                     /skin/adminhtml/default/default/aw_blog
+/src/skin/frontend/base/default/aw_blog                         /skin/frontend/base/default/aw_blog
+
+# ENTERPRISE FILES - NOT DEPLOYED YET
+#/src/app/design/frontend/enterprise/default/layout/aw_blog.xml /src/app/design/frontend/enterprise/default/layout/aw_blog.xml
+#/src/app/design/frontend/enterprise/default/template/aw_blog   /src/app/design/frontend/enterprise/default/template/aw_blog
+#/src/skin/frontend/enterprise/default/aw_blog                  /src/skin/frontend/enterprise/default/aw_blog

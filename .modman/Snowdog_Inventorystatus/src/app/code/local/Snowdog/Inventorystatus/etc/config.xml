@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_Inventorystatus>
+            <version>0.1.0</version>
+        </Snowdog_Inventorystatus>
+    </modules>
+   <global>
+        <blocks>
+            <inventorystatus>
+                <class>Snowdog_Inventorystatus_Block</class>
+            </inventorystatus>
+            <adminhtml>
+                <rewrite>
+                   <catalog_product_grid>Snowdog_Inventorystatus_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+               </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+</config> 

@@ -1,0 +1,112 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+    <?php echo $this->getChildHtml('head') ?>
+</head>
+    <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+        <?php echo $this->getChildHtml('after_body_start') ?>
+        <div class="wrapper">
+            <?php echo $this->getChildHtml('global_notices') ?>
+            <div class="page">
+                <?php echo $this->getChildHtml('header') ?>
+                <div class="main-container col1-layout">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('messages') ?>
+                    <?php
+                        echo $this->getLayout()->createBlock('bannerslider/default')->setTemplate('bannerslider/bannerslider.phtml')->setBannersliderId(1)->toHtml();
+                        echo $this->getLayout()->createBlock('cms/block')->setBlockId('sockbin_home_section_2')->toHtml(); // Shipping
+                    ?>
+                    
+                    <!-- Products Tabs -->
+                    <div class="section section--products">
+                        <h2><?php echo $this->__('What We have For'); ?>:</h2>
+                        <div class="container clearfix">
+                            <ul class="category-tabs">
+                                <li class="active women"><a href="#women"><?php echo $this->__('Women'); ?></a></li>
+                                <li class="men"><a href="#men"><?php echo $this->__('Men'); ?></a></li>
+                                <li class="girls"><a href="#girls"><?php echo $this->__('Girls'); ?></a></li>
+                                <li class="boys"><a href="#boys"><?php echo $this->__('Boys'); ?></a></li>
+                            </ul>
+                            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sockbin_home_section_3')->toHtml(); ?>
+                        </div>
+                    </div>
+                    
+                    <?php $catalogSearchHelper = $this->helper('catalogsearch'); ?>
+                    <div class="section section--search">
+                        <div class="container clearfix">
+                            <div class="search-wrap">
+                                <span><?php echo $this->__('Find Your Perfect Pair'); ?>:</span>
+                                <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+                                    <div class="input-box">
+                                        <label for="search"><?php echo $this->__('Search'); ?>:</label>
+                                        <input id="search" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="<?php echo $this->__('Use keywords like gray, fuzzy, colorful...'); ?>">
+                                        <button type="submit" title="Search" class="button search-button button-green">
+                                            <span><span><?php echo $this->__('Search'); ?></span></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sockbin_home_section_5')->toHtml(); ?>
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sockbin_home_section_6')->toHtml(); ?>
+                    
+                    <div class="container clearfix hidden">
+                        <div class="main">
+                            <div class="col-main">
+                                <?php echo $this->getChildHtml('global_messages') ?>
+                                <?php echo $this->getChildHtml('content') ?>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div><!-- .main-container (end) -->
+                <?php echo $this->getChildHtml('footer_before') ?>
+                <?php echo $this->getChildHtml('footer') ?>
+                <?php echo $this->getChildHtml('global_cookie_notice') ?>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+        <?php echo $this->getAbsoluteFooter() ?>
+    </body>
+</html>
+

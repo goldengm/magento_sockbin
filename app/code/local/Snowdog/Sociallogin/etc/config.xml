@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_Sociallogin>
+            <version>0.1.0</version>
+        </Snowdog_Sociallogin>
+    </modules>
+    <frontend>
+        <routers>
+            <sociallogin>
+                <args>
+                    <modules>
+                        <Snowdog_Sociallogin before="Apptha_Sociallogin">Snowdog_Sociallogin</Snowdog_Sociallogin>
+                    </modules>
+                </args>
+            </sociallogin>
+        </routers>
+    </frontend>
+    <global>
+        <helpers>
+            <sociallogin>
+                <class>Snowdog_Sociallogin_Helper</class>
+            </sociallogin>
+        </helpers>
+        <blocks>
+            <sociallogin>
+                <class>Snowdog_Sociallogin_Block</class>
+            </sociallogin>
+            <sociallogin>
+                <rewrite>
+                    <sociallogin>Snowdog_Sociallogin_Block_Sociallogin_Sociallogin</sociallogin>
+                </rewrite>
+            </sociallogin>
+        </blocks>
+    </global>
+    <admin>
+        <routers>
+            <sociallogin>
+                <use>admin</use>
+                <args>
+                    <module>Snowdog_Sociallogin</module>
+                    <frontName>admin_sociallogin</frontName>
+                </args>
+            </sociallogin>
+        </routers>
+    </admin>
+</config> 

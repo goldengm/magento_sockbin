@@ -1,0 +1,4 @@
+/src/app/code/local/Snowdog/AjaxNewsletter/controllers/SubscriberController.php      /app/code/local/Snowdog/AjaxNewsletter/controllers/SubscriberController.php
+/src/app/code/local/Snowdog/AjaxNewsletter/etc/config.xml                            /app/code/local/Snowdog/AjaxNewsletter/etc/config.xml
+/src/app/design/frontend/base/default/template/snowdog/newsletter/subscribe.phtml    /app/design/frontend/base/default/template/snowdog/newsletter/subscribe.phtml
+/src/app/etc/modules/Snowdog_AjaxNewsletter.xml                                      /app/etc/modules/Snowdog_AjaxNewsletter.xml

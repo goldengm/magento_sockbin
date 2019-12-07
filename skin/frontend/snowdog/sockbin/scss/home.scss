@@ -1,0 +1,20 @@
+$mq-support: true;
+$mq-fixed-value: false;
+
+@import "framework";
+@import "core";
+
+// ----------------------------------------------
+// Modules
+
+@import "module/search";
+@import "module/slideshow";
+@import "module/cookies";
+
+// ----------------------------------------------
+// Content
+@import "content/home";
+
+// ----------------------------------------------
+// Override
+@import "override/plugin";

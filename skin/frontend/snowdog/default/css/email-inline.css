@@ -1,0 +1,886 @@
+/*
+// ----------------------------------------------
+// Usage example:
+// For IE set $mq-support to false.
+// Set the fixed value.
+// Then use mixins to test whether styles should be applied.
+// ----------------------------------------------
+
+$mq-support: false;
+$mq-fixed-value: 1024;
+
+// Renders at fixed value
+@include bp (min-width, 300px) { 
+    div { color:#000; }
+}
+
+// Doesn't render without MQ support
+@include bp (min-width, 1200px) { 
+    div { color:#FFF; }
+}
+
+// Doesn't render without MQ support
+@include bp (max-width, 300px) { 
+    div { color:#444; }
+}
+
+// Renders at fixed value
+@include bp (max-width, 1200px) { 
+    div { color:#888; }
+}
+
+// ----------------------------------------------
+*/
+/* ============================================ *
+ * General Styles
+ * ============================================ */
+/* line 17, skin/frontend/snowdog/default/scss/email-inline.scss */
+body, table.body, th, h1, h2, h3, h4, h5, h6, td, p, strong {
+  font-family: Verdana, Arial;
+  font-weight: normal;
+}
+
+/* line 22, skin/frontend/snowdog/default/scss/email-inline.scss */
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: #333333;
+  background-color: #EBEBEB;
+}
+
+/* line 30, skin/frontend/snowdog/default/scss/email-inline.scss */
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 35, skin/frontend/snowdog/default/scss/email-inline.scss */
+table {
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+
+/* line 40, skin/frontend/snowdog/default/scss/email-inline.scss */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 43, skin/frontend/snowdog/default/scss/email-inline.scss */
+body {
+  background: #EBEBEB;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 49, skin/frontend/snowdog/default/scss/email-inline.scss */
+table,
+table td {
+  border-collapse: collapse;
+}
+
+/* line 53, skin/frontend/snowdog/default/scss/email-inline.scss */
+table td {
+  vertical-align: top;
+}
+
+/* line 56, skin/frontend/snowdog/default/scss/email-inline.scss */
+a {
+  color: #3696C2;
+}
+
+/* line 59, skin/frontend/snowdog/default/scss/email-inline.scss */
+.cell-content.product-info,
+.bundle-item,
+.bundle-item-parent.product-info,
+.bill-ship-to,
+.method-information {
+  text-align: left;
+}
+
+/* line 66, skin/frontend/snowdog/default/scss/email-inline.scss */
+html,
+#background-table {
+  background-color: #EBEBEB;
+}
+
+/* line 70, skin/frontend/snowdog/default/scss/email-inline.scss */
+#background-table {
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* line 75, skin/frontend/snowdog/default/scss/email-inline.scss */
+.container-td {
+  width: 100%;
+}
+
+/* line 78, skin/frontend/snowdog/default/scss/email-inline.scss */
+.container-table {
+  width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================ *
+ * Header Styles
+ * ============================================ */
+/* line 87, skin/frontend/snowdog/default/scss/email-inline.scss */
+.top-content {
+  border: 1px solid #EBEBEB;
+  background: #FFF;
+  padding: 5px;
+}
+
+/* line 92, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.logo-container {
+  width: 100%;
+}
+
+/* line 95, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.logo {
+  padding: 15px 0px 10px 5px;
+}
+
+/* line 98, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.logo a {
+  float: left;
+  display: block;
+}
+
+/* line 102, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.logo img {
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 106, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.email-heading {
+  padding: 0 1%;
+  background: #E1F0F8;
+  border-right: 1px dashed #C3CED4;
+  text-align: center;
+  width: 58%;
+}
+
+/* line 113, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.email-heading h1 {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 1em 0;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+/* line 120, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.email-heading p {
+  line-height: 20px;
+  margin: 1em 0;
+}
+
+/* line 124, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.store-info {
+  padding: 2%;
+  background: #E1F0F8;
+  width: 40%;
+}
+
+/* line 129, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.store-info h4 {
+  margin-bottom: 5px;
+  font-size: 11px;
+}
+
+/* line 133, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.store-info p {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 1em 0;
+}
+
+/* line 138, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.store-info a {
+  text-decoration: underline;
+  color: #3696C2;
+}
+
+/* ============================================ *
+ * Content - Styles
+ * ============================================ */
+/* line 147, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.order-details {
+  padding: 5px 15px;
+  text-align: center;
+}
+
+/* line 151, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.order-details h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  font-weight: normal;
+}
+
+/* line 157, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.order-details p {
+  font-size: 11px;
+  margin: 1em 0 15px;
+}
+
+/* line 161, skin/frontend/snowdog/default/scss/email-inline.scss */
+.items {
+  width: 100%;
+  padding: 10px 15px;
+}
+
+/* line 165, skin/frontend/snowdog/default/scss/email-inline.scss */
+.cell-name {
+  padding: 10px 15px;
+  background: #F1F1F1;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 11px;
+}
+
+/* line 173, skin/frontend/snowdog/default/scss/email-inline.scss */
+.cell-name.align-center {
+  text-align: center;
+}
+
+/* line 176, skin/frontend/snowdog/default/scss/email-inline.scss */
+.cell-name.align-right {
+  text-align: right;
+}
+
+/* line 179, skin/frontend/snowdog/default/scss/email-inline.scss */
+.method-info,
+.method-info h6,
+.method-info p,
+.method-info strong {
+  text-align: left;
+}
+
+/* line 185, skin/frontend/snowdog/default/scss/email-inline.scss */
+.cell-content {
+  padding: 10px 15px;
+  border-top: 1px solid #EBEBEB;
+  font-family: Verdana, Arial;
+}
+
+/* line 190, skin/frontend/snowdog/default/scss/email-inline.scss */
+.product-info a.product-name {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3696C2;
+  text-decoration: none;
+  vertical-align: middle;
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+/* line 200, skin/frontend/snowdog/default/scss/email-inline.scss */
+.table-totals {
+  width: 100%;
+  background: #E1F0F8;
+}
+
+/* line 204, skin/frontend/snowdog/default/scss/email-inline.scss */
+.padding-totals {
+  padding: 20px 15px;
+  text-align: right;
+  line-height: 20px;
+}
+
+/* line 209, skin/frontend/snowdog/default/scss/email-inline.scss */
+.padding-totals .last {
+  width: 1px;
+  white-space: nowrap;
+}
+
+/* line 213, skin/frontend/snowdog/default/scss/email-inline.scss */
+.table-totals table {
+  width: 100%;
+}
+
+/* line 216, skin/frontend/snowdog/default/scss/email-inline.scss */
+.shipping {
+  padding-bottom: 5px;
+}
+
+/* line 219, skin/frontend/snowdog/default/scss/email-inline.scss */
+.grand-total {
+  border-top: 1px solid #C3CED4;
+  padding-top: 5px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* line 225, skin/frontend/snowdog/default/scss/email-inline.scss */
+.shipping-information td {
+  padding: 0 15px;
+}
+
+/* line 228, skin/frontend/snowdog/default/scss/email-inline.scss */
+.shipping-information > td > table {
+  width: 100%;
+}
+
+/* line 231, skin/frontend/snowdog/default/scss/email-inline.scss */
+.address-details {
+  padding-top: 10px;
+}
+
+/* line 234, skin/frontend/snowdog/default/scss/email-inline.scss */
+.address-details,
+.method-info {
+  text-align: left;
+  padding: 10px 15px 0;
+}
+
+/* line 239, skin/frontend/snowdog/default/scss/email-inline.scss */
+.address-details h6,
+.method-info h6 {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+/* line 247, skin/frontend/snowdog/default/scss/email-inline.scss */
+.address-details p {
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 15px;
+  margin-top: 2px;
+}
+
+/* line 253, skin/frontend/snowdog/default/scss/email-inline.scss */
+.method-info {
+  padding-bottom: 10px;
+}
+
+/* line 256, skin/frontend/snowdog/default/scss/email-inline.scss */
+.method-info p {
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 30px;
+  line-height: 18px;
+}
+
+/* line 262, skin/frontend/snowdog/default/scss/email-inline.scss */
+.closing-text {
+  text-align: center;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: normal;
+  margin-bottom: 75px;
+  margin-top: 30px;
+}
+
+/* line 270, skin/frontend/snowdog/default/scss/email-inline.scss */
+.product-info > p,
+.product-info > dl {
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+/* line 276, skin/frontend/snowdog/default/scss/email-inline.scss */
+.product-info > dl {
+  line-height: 20px;
+}
+
+/* line 279, skin/frontend/snowdog/default/scss/email-inline.scss */
+.action-content {
+  padding: 10px 20px 15px;
+  line-height: 18px;
+}
+
+/* line 283, skin/frontend/snowdog/default/scss/email-inline.scss */
+.action-content h1 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-top: 5px;
+  line-height: 28px;
+}
+
+/* line 290, skin/frontend/snowdog/default/scss/email-inline.scss */
+.line-separator {
+  height: 5px;
+}
+
+/* line 293, skin/frontend/snowdog/default/scss/email-inline.scss */
+.method-info p, .method-info dl {
+  padding: 0;
+}
+
+/* ============================================ *
+ * Comments and Messages - Styles
+ * ============================================ */
+/* line 302, skin/frontend/snowdog/default/scss/email-inline.scss */
+.message-container {
+  margin: 15px 0;
+  width: 100%;
+  background-color: #FFFDD9;
+  border: 1px solid #FFF74C;
+}
+
+/* line 308, skin/frontend/snowdog/default/scss/email-inline.scss */
+.message-container,
+.order-information > td > table,
+.top-content > table {
+  width: 100%;
+}
+
+/* line 313, skin/frontend/snowdog/default/scss/email-inline.scss */
+.message-container td {
+  padding: 10px 15px;
+  margin: 0;
+}
+
+/* line 318, skin/frontend/snowdog/default/scss/email-inline.scss */
+.highlighted-text {
+  border: 1px solid #C3CED4;
+  padding: 13px 18px;
+  background: #F1F1F1;
+}
+
+/* ============================================ *
+ * Bundle Products - Styles
+ * ============================================ */
+/* line 328, skin/frontend/snowdog/default/scss/email-inline.scss */
+.bundle-item {
+  padding: 0px 15px;
+  text-align: left;
+}
+
+/* line 332, skin/frontend/snowdog/default/scss/email-inline.scss */
+.bundle-item-parent {
+  border-top: 1px solid #EBEBEB;
+  padding: 10px 15px;
+}
+
+/* line 336, skin/frontend/snowdog/default/scss/email-inline.scss */
+.bundle-item-parent.product-info {
+  text-align: left;
+}
+
+/* line 339, skin/frontend/snowdog/default/scss/email-inline.scss */
+.bundle-item > div,
+.bundle-item > strong {
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+/* line 345, skin/frontend/snowdog/default/scss/email-inline.scss */
+.bundle-item.bundle-details > div {
+  margin-bottom: 15px;
+}
+
+/* ============================================ *
+ * Buttons - Styles
+ * ============================================ */
+/* line 353, skin/frontend/snowdog/default/scss/email-inline.scss */
+.action-button {
+  width: 220px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 358, skin/frontend/snowdog/default/scss/email-inline.scss */
+.action-button td {
+  background-color: #3696C2;
+  color: #FFF;
+  width: 100%;
+  height: 40px;
+  display: block;
+  border: 0 none;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+/* line 371, skin/frontend/snowdog/default/scss/email-inline.scss */
+.action-button a {
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  font-size: 15px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* line 379, skin/frontend/snowdog/default/scss/email-inline.scss */
+.action-button a span {
+  color: #FFF;
+}
+
+/* ============================================ *
+ * Newsletter - Default Template Styles
+ * ============================================ */
+/* line 387, skin/frontend/snowdog/default/scss/email-inline.scss */
+hr {
+  background-color: #D9D9D9;
+  border: medium none;
+  color: #D9D9D9;
+  height: 1px;
+  margin-left: 3%;
+  width: 94%;
+}
+
+/* line 395, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.email-heading h1 {
+  margin-top: 25px;
+}
+
+/* line 398, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.store-info h4 {
+  font-size: 12px;
+  margin-top: 13px;
+  font-weight: bold;
+}
+
+/* line 403, skin/frontend/snowdog/default/scss/email-inline.scss */
+table, table td {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 407, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.columns.heading {
+  margin-bottom: 3px;
+}
+
+/* line 410, skin/frontend/snowdog/default/scss/email-inline.scss */
+.main-image {
+  width: 100%;
+  margin-bottom: 3px;
+  margin-top: 5px;
+}
+
+/* line 415, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.row {
+  padding: 0px;
+  width: 100%;
+  position: relative;
+}
+
+/* line 420, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.container table.row {
+  display: block;
+  margin: 5px;
+}
+
+/* line 424, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.wrapper {
+  padding: 10px 0 0;
+  position: relative;
+}
+
+/* line 428, skin/frontend/snowdog/default/scss/email-inline.scss */
+.full {
+  width: 100%;
+}
+
+/* line 431, skin/frontend/snowdog/default/scss/email-inline.scss */
+.half {
+  width: 50%;
+}
+
+/* line 434, skin/frontend/snowdog/default/scss/email-inline.scss */
+.half.left {
+  padding-right: 5px;
+  padding-left: 10px;
+}
+
+/* line 438, skin/frontend/snowdog/default/scss/email-inline.scss */
+.half.right {
+  padding-left: 5px;
+}
+
+/* line 441, skin/frontend/snowdog/default/scss/email-inline.scss */
+.columns {
+  width: 100%;
+}
+
+/* line 444, skin/frontend/snowdog/default/scss/email-inline.scss */
+td.expander {
+  visibility: hidden;
+  width: 0px;
+  padding: 0;
+}
+
+/* line 449, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.button {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 453, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.button td,
+table.social-button td {
+  display: block;
+  width: auto;
+  text-align: center;
+  color: #FFF;
+  padding: 8px 4%;
+  cursor: pointer;
+}
+
+/* line 462, skin/frontend/snowdog/default/scss/email-inline.scss */
+.social-button {
+  width: 94%;
+  margin: 5px 3%;
+}
+
+/* line 466, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.button td {
+  background: #3696C2;
+}
+
+/* line 469, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.social-button td {
+  padding: 5px 4%;
+}
+
+/* line 472, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.button td a,
+table.social-button td a {
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* line 479, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.social-button td a {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* line 483, skin/frontend/snowdog/default/scss/email-inline.scss */
+.panel {
+  background-color: #F2F2F2;
+  border: 1px solid #D9D9D9;
+}
+
+/* line 487, skin/frontend/snowdog/default/scss/email-inline.scss */
+.panel p {
+  margin: 10px;
+}
+
+/* line 490, skin/frontend/snowdog/default/scss/email-inline.scss */
+.panel h6 {
+  font-size: 20px;
+  margin: 15px 10px;
+}
+
+/* line 494, skin/frontend/snowdog/default/scss/email-inline.scss */
+.panel a {
+  color: #3696C2;
+  text-decoration: none;
+}
+
+/* line 498, skin/frontend/snowdog/default/scss/email-inline.scss */
+.sidebar-links table {
+  width: 100%;
+}
+
+/* line 501, skin/frontend/snowdog/default/scss/email-inline.scss */
+.sidebar-links td {
+  width: 100%;
+}
+
+/* line 504, skin/frontend/snowdog/default/scss/email-inline.scss */
+.sidebar-links a {
+  margin: 8px 0;
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+
+/* line 510, skin/frontend/snowdog/default/scss/email-inline.scss */
+.sidebar-links table p {
+  margin: 0 10px;
+}
+
+/* line 513, skin/frontend/snowdog/default/scss/email-inline.scss */
+.sidebar-links a span {
+  margin-left: 3%;
+}
+
+/* line 516, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.facebook td,
+table.twitter td,
+table.google-plus td,
+table.facebook td a,
+table.twitter td a,
+table.google-plus td a {
+  text-align: center;
+  height: 17px;
+}
+
+/* line 525, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.facebook td {
+  background: #3B5998;
+}
+
+/* line 528, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.twitter td {
+  background: #00ACEE;
+}
+
+/* line 531, skin/frontend/snowdog/default/scss/email-inline.scss */
+table.google-plus td {
+  background: #DB4A39;
+}
+
+/* ============================================ *
+ * Product Grid
+ * ============================================ */
+/* line 539, skin/frontend/snowdog/default/scss/email-inline.scss */
+h2.products {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 543, skin/frontend/snowdog/default/scss/email-inline.scss */
+.products-grid > tr > td {
+  width: 25%;
+}
+
+/* line 546, skin/frontend/snowdog/default/scss/email-inline.scss */
+.products-grid > tr > td img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 550, skin/frontend/snowdog/default/scss/email-inline.scss */
+.products-grid .product-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 554, skin/frontend/snowdog/default/scss/email-inline.scss */
+.product-name {
+  margin: 0 0 5px 0;
+  color: #636363;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+/* line 563, skin/frontend/snowdog/default/scss/email-inline.scss */
+p.product-name {
+  font-weight: bold;
+}
+
+/* line 566, skin/frontend/snowdog/default/scss/email-inline.scss */
+p.sku {
+  margin: 0 0 5px;
+}
+
+/* ============================================ *
+ * Product Grid - Price Styles
+ * The price styles are copied directly from the _common.scss file
+ * ============================================ */
+/* line 575, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box {
+  margin: 7px 0;
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+
+/* line 580, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box p {
+  margin-bottom: 0;
+}
+
+/* line 584, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-notice {
+  color: #A0A0A0;
+}
+
+/* line 588, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .price {
+  color: #3399CC;
+  font-size: 16px;
+}
+
+/* line 593, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .price,
+.price {
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+
+/* line 598, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .price-label {
+  color: #A0A0A0;
+  white-space: nowrap;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+
+/* line 604, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .minimal-price-link {
+  padding-left: 1em;
+  color: #3399CC;
+  display: block;
+  /* We want this to show on its own line, otherwise the layout looks funky */
+}
+/* line 609, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .minimal-price-link .label {
+  color: #A0A0A0;
+}
+
+/* -------------------------------------------- *
+ * Price Box - Special
+ */
+/* line 618, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .old-price,
+.price-box .special-price {
+  display: inline-block;
+}
+/* line 622, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .old-price .price-label,
+.price-box .special-price .price-label {
+  display: none;
+}
+/* line 626, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .old-price .price,
+.price-box .special-price .price {
+  display: inline-block;
+}
+
+/* line 632, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .old-price .price {
+  color: #A0A0A0;
+  text-decoration: line-through;
+}
+
+/* line 638, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .special-price {
+  color: #3399CC;
+  padding-left: 1em;
+}
+/* line 642, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .special-price .price-label {
+  color: #D84D3C;
+}
+
+/* -------------------------------------------- *
+ * Price Box - Taxes
+ */
+/* line 651, skin/frontend/snowdog/default/scss/email-inline.scss */
+.price-box .price-excluding-tax,
+.price-box .price-including-tax {
+  display: block;
+}

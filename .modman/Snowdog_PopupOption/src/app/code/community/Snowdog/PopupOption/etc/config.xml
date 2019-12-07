@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_PopupOption>
+            <version>0.1.0</version>
+        </Snowdog_PopupOption>
+    </modules>
+    <global>
+        <helpers>
+            <popupoption>
+                <class>Snowdog_PopupOption_Helper</class>
+            </popupoption>
+        </helpers>
+        <models>
+            <popupoption>
+                <class>Snowdog_PopupOption_Model</class>
+            </popupoption>
+        </models>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <popupoption>
+                    <file>snowpopup.xml</file>
+                </popupoption>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <popupoption before="Mage_Adminhtml">Snowdog_PopupOption_Adminhtml</popupoption>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config> 

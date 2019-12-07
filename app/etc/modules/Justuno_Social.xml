@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @package Justuno_Social
+*/
+-->
+<config>
+  <modules>
+    <Justuno_Social>
+      <active>true</active>
+      <codePool>community</codePool>
+      <version>1.0.7</version>
+    </Justuno_Social>
+  </modules>
+</config>

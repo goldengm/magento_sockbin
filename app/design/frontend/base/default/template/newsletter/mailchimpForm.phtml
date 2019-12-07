@@ -1,0 +1,56 @@
+<?php
+$_helper = Mage::helper('popupoption');
+$popupStatus = $_helper->getPopupStatus();
+
+if ($popupStatus !== "0"): ?>
+    <div class="desktop-mc">
+        <div id="mc_embed_signup"
+             data-expired="<?php echo $_helper->getExpiry(); ?>"
+             data-last_restart="<?php echo $_helper->getLastRestart(); ?>"
+             data-refresh_page="<?php echo $_helper->getRefreshPage(); ?>"
+             data-last_page="<?php echo $_helper->getLastPageView(); ?>">
+            <div id="mc-wrapper">
+                <div class="mc_embed_close_div">
+                    <a href="#" id="mc_embed_close" class="mc_embed_close">Close</a>
+                </div>
+                <div id="mc-popup-wrapper">
+                    <div id="email-popup-footer">
+                        <div class="mc_static-block">
+                            <div class="mc_static-block_mobile">
+                                <?php echo $_helper->getMobileBlock(); ?>
+                            </div>
+                            <div class="mc_static-block_desktop">
+                                <?php echo $_helper->getBlock(); ?>
+                            </div>
+                        </div>
+                        <?php if ($popupStatus == 'block_email') : ?>
+                            <form
+                                action="<?php echo (Mage::app()->getStore()->isCurrentlySecure()) ? 'https' : 'https'
+                                ?>://bambibaby.us1.list-manage.com/subscribe/post-json?u=c4f5de820cf4d4eb94982a24b&id=578b601a12&c=?"
+                                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                class="validate" target="_blank" novalidate>
+                                <div id="mc-signup-text"><?php echo $_helper->getSingupText(); ?></div>
+                                <div class="mc-field-group" id="mce-field-group">
+                                    <input type="email" name="EMAIL"
+                                           placeholder="<?= $this->__('Email') ?>"
+                                           class="required email" id="mce-EMAIL">
+                                </div>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input type="text" name="b_d07a4172c3cee103112a30ec7_9899287c59" value="">
+                                </div>
+                                <div id="mce-subscribe">
+                                    <input type="submit" value="Submit" name="submit" id="mc-embedded-subscribe"
+                                           class="button">
+                                </div>
+                                <div id="mce-responses">
+                                    <div class="response" id="mce-error-response" style="display:none"></div>
+                                    <div class="response" id="mce-success-response" style="display:none"></div>
+                                </div>
+                            </form>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

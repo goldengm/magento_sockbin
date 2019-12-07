@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+       <reference name="after_body_start">
+			<block type="social/widget" name="justuno_social" as="justuno_social" template="justuno_social/widget.phtml" />
+        </reference>
+    </default>
+</layout>

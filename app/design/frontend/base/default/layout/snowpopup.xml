@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+
+        <reference name="head">
+            <!-- jQuery plugins -->
+            <action method="addJs">
+                <script>mailchimp/mailchimp_form.js</script>
+            </action>
+            <action method="addJs">
+                <script>mailchimp/mailchimp_form_dropdown.js</script>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/snowpopup.css</name>
+                <params/>
+            </action>
+        </reference>
+
+        <!-- Mail Chimp Newsletter -->
+        <reference name="before_body_end">
+            <block type="core/template" name="mailchimp" template="newsletter/mailchimpForm.phtml"/>
+            <block type="cms/block" name="mailchimp_dropdown" before="ultraslideshow">
+                <action method="setBlockId">
+                    <block_id>top_bar_newsletter_mobile</block_id>
+                </action>
+            </block>
+        </reference>
+
+    </default>
+</layout>

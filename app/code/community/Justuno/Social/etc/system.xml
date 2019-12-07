@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <justuno translate="label">
+            <label>Justuno</label>
+            <sort_order>150</sort_order>
+        </justuno>
+    </tabs>
+	  <sections>
+		<justuno translate="label" module="social">                    
+		<label>Account Settings</label>
+		<tab>justuno</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+				<groups>
+				      <account translate="label"> 
+					  <label>Connect Magento to existing Justuno Account</label>
+					  <frontend_type>text</frontend_type>
+					  <frontend_model>social/dashboard</frontend_model>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                          <email translate="label">
+                            <label>Enter your justuno account email:</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment></comment>
+                          </email>
+                          <password translate="label">
+                            <label>Enter your justuno account password:</label>
+							<frontend_type>password</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment></comment>
+                          </password>
+                          <forgetpassword translate="label">
+						    <comment>
+						        <model>social/adminhtml_comment</model>
+						    </comment>
+						    <frontend_type>hidden</frontend_type>
+						    <sort_order>2</sort_order>
+						    <show_in_default>1</show_in_default>
+						    <show_in_website>1</show_in_website>
+						    <show_in_store>1</show_in_store>
+						</forgetpassword>
+                          <domain translate="label">
+                            <label></label>
+							<frontend_type>hidden</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                          </domain>
+                          <embed translate="label">
+                            <label></label>
+							<frontend_type>hidden</frontend_type>
+							<backend_model>social/embed</backend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+                          </embed>
+					   </fields>
+					   </account>
+
+					   <register translate="label">
+					   		 <label>Create New Justuno Account</label>
+					   		 <frontend_type>text</frontend_type>
+					   		 <frontend_model>social/dashboard1</frontend_model>
+						  	 <sort_order>1</sort_order>
+						  	 <show_in_default>1</show_in_default>
+						  	 <show_in_website>1</show_in_website>
+						  	 <show_in_store>1</show_in_store>
+						  	 <fields>
+	                          <email translate="label">
+	                            <label>Enter an e-mail address:</label>
+								<frontend_type>text</frontend_type>
+	                            <sort_order>0</sort_order>
+	                            <show_in_default>1</show_in_default>
+	                            <show_in_website>1</show_in_website>
+	                            <show_in_store>1</show_in_store>
+								<comment></comment>
+	                          </email>
+	                          <phone translate="label">
+	                            <label>Enter your phone number:</label>
+								<frontend_type>text</frontend_type>
+	                            <sort_order>3</sort_order>
+	                            <show_in_default>1</show_in_default>
+	                            <show_in_website>1</show_in_website>
+	                            <show_in_store>1</show_in_store>
+								<comment></comment>
+	                          </phone>
+	                          <password translate="label">
+	                            <label>Enter a password:</label>
+								<frontend_type>password</frontend_type>
+	                            <sort_order>1</sort_order>
+	                            <show_in_default>1</show_in_default>
+	                            <show_in_website>1</show_in_website>
+	                            <show_in_store>1</show_in_store>
+								<comment></comment>
+	                          </password>
+	                          <domain translate="label">
+	                            <label>Enter your website domain:</label>
+								<frontend_type>text</frontend_type>
+	                            <sort_order>2</sort_order>
+	                            <show_in_default>1</show_in_default>
+	                            <show_in_website>1</show_in_website>
+	                            <show_in_store>1</show_in_store>
+								<comment></comment>
+	                          </domain>
+	                          <embed translate="label">
+	                            <label></label>
+								<frontend_type>hidden</frontend_type>
+								<backend_model>social/embed</backend_model>
+	                            <sort_order>3</sort_order>
+	                            <show_in_default>0</show_in_default>
+	                            <show_in_website>0</show_in_website>
+	                            <show_in_store>0</show_in_store>
+								<comment></comment>
+	                          </embed>
+						   </fields>
+					   </register>
+				</groups>
+
+
+		</justuno>
+	  </sections>
+	  <sections>
+		<dashboard translate="label" module="social">                    
+			<label>Dashboard</label>
+			<tab>justuno</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>0</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				      <dashboardlink translate="label"> 
+						  <label>Dashboard</label>
+						  <frontend_type>text</frontend_type>
+						  <frontend_model>social/domain</frontend_model>
+						  <sort_order>0</sort_order>
+						  <show_in_default>1</show_in_default>
+						  <show_in_website>1</show_in_website>
+						  <show_in_store>1</show_in_store>
+					  </dashboardlink>
+			</groups>   
+		</dashboard>
+	</sections>
+</config>

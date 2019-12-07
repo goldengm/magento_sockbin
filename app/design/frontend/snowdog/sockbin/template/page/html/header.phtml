@@ -1,0 +1,173 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+
+$isLoggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
+$loginText = $this->__('Login');
+
+if ( $isLoggedIn ) {
+    $loginText = $this->__('My Account');
+}
+
+?>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container clearfix">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sockbin_top_bar_links')->toHtml(); ?>
+    </div>
+</div>
+
+<div class="top-links clearfix hidden">
+    <ul class="mobile-links left">
+        <li class="primary-menu-trigger">
+            <a href="#">
+                <?php echo $this->__('Menu'); ?>
+            </a>
+        </li>
+        <li class="tracking">
+            <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>">
+                <img src="<?php echo $this->getSkinUrl('images/mobile/tracking.png'); ?>" alt="<?php echo $this->__('Track Your Order' ); ?>" />
+                <span><?php echo $this->__('Track Your Order'); ?></span>
+            </a>
+        </li>
+        <li class="search hidden">
+            <a href="#">
+                <img src="<?php echo $this->getSkinUrl('images/mobile/search.png'); ?>" alt="<?php echo $this->__('Search' ); ?>" />
+                <span><?php echo $this->__('Search'); ?></span>
+            </a>
+        </li>
+    </ul>
+    <ul class="mobile-links right">
+        <li class="cart hidden">
+            <a href="<?php echo $this->getUrl('checkout/cart'); ?>" class="cd-btn">
+                <img src="<?php echo $this->getSkinUrl('images/mobile/cart.png'); ?>" alt="<?php echo $this->__('Cart' ); ?>" />
+                <span><?php echo $this->__('Cart'); ?></span>
+            </a>
+        </li>
+        <li class="login">
+            <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>">
+                <img src="<?php echo $this->getSkinUrl('images/mobile/user.png'); ?>" alt="<?php echo $loginText; ?>" />
+                <span><?php echo $loginText; ?></span>
+            </a>
+        </li>
+        <li class="wishlist">
+            <a href="<?php echo $this->getUrl('wishlist'); ?>">
+                <img src="<?php echo $this->getSkinUrl('images/mobile/wishlist.png'); ?>" alt="<?php echo $this->__('Wishlist' ); ?>" />
+                <span><?php echo $this->__('Wishlist'); ?></span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+    <div class="container clearfix">
+        
+        <!-- Logo -->
+        <div class="logo">
+            <a href="<?php echo $this->getUrl('') ?>">
+                <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+            </a>
+        </div>
+
+        <div class="header-extras">
+            <!-- Search -->
+            <div class="top-search">
+                <span><?php echo $this->__( 'Find Your Perfect Pair' ); ?>:</span>
+                <?php echo $this->getChildHtml('topSearch') ?>
+            </div>
+
+            <!-- Account -->
+            <div class="top-account">
+                <ul>
+                    <li class="tracking">
+                        <a href="<?php echo $this->getUrl( 'trackorder', array( '_secure' => true ) ); ?>">
+                            <?php echo $this->__('Track Your Order'); ?>
+                        </a>
+                    </li>
+                    <li class="login">
+                        <a href="<?php echo $this->helper('customer')->getAccountUrl(); ?>">
+                            <?php echo $loginText; ?>
+                        </a>
+                    </li>
+                    
+                    <?php if ( $isLoggedIn ) : ?>
+                        <li class="sep">|</li>
+                        <li class="logout">
+                            <a href="<?php echo $this->helper('customer')->getLogoutUrl(); ?>">
+                                <?php echo $this->__('Logout'); ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <li class="sep">|</li>
+                    <li class="wishlist">
+                        <a href="<?php echo $this->getUrl('wishlist'); ?>">
+                            <?php echo $this->__('Wishlist' ); ?>
+                        </a>
+                    </li>
+                    <li class="sep">|</li>
+                    <li class="cart">
+                        <a class="cd-btn" href="<?php echo $this->getUrl('checkout/cart'); ?>">
+                            <?php echo $this->__('My Cart'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <?php
+                // Get cart items
+                $cartQty = $this->helper('checkout/cart')->getSummaryCount();
+                $cartItem = '(0)';
+                if ( $cartQty > 0 ) {
+                    $cartItem = sprintf( '(%s)', $cartQty );
+                }
+            ?>
+
+            <!-- Cart -->
+            <div class="top-cart">
+                <a href="<?php echo $this->getUrl('checkout/cart'); ?>" class="cd-btn">
+                    <img src="<?php echo $this->getSkinUrl('images/cart.png'); ?>" alt="<?php echo $this->__('Cart'); ?>" />
+                    <span><?php printf( '%s %s', $this->__('My Cart' ), $cartItem ); ?></span>
+                </a>
+            </div>
+            <div class="header-minicart">
+                <?php echo $this->getChildHtml('minicart_head'); ?>
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="header-wrap">
+        <?php echo $this->getChildHtml('topMenu') ?>
+    </div>
+
+</header>
+
+<?php echo $this->getChildHtml('topContainer'); ?>

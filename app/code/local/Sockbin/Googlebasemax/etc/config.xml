@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Sockbin
+ * @package     Sockbin_Googlebasemax
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Sockbin_Googlebasemax>
+            <version>1.6.0.0</version>
+        </Sockbin_Googlebasemax>
+    </modules>
+    <global>
+<!--        <blocks>
+            <googlebasemax>
+                <class>Sockbin_Googlebasemax_Block</class>
+            </googlebasemax>
+        </blocks>-->
+        <helpers>
+            <googlebasemax>
+                <class>Sockbin_Googlebasemax_Helper</class>
+            </googlebasemax>
+        </helpers>
+        <models>
+            <googlebasemax>
+                <class>Sockbin_Googlebasemax_Model</class>
+                <resourceModel>googlebasemax_resource</resourceModel>
+            </googlebasemax>
+            <googlebasemax_resource>
+                <class>Sockbin_Googlebasemax_Model_Resource</class>
+                <deprecatedNode>googlebasemax_mysql4</deprecatedNode>
+                <entities>
+                    <googlebasemax>
+                        <table>googlebasemax</table>
+                    </googlebasemax>
+                </entities>
+            </googlebasemax_resource>
+        </models>
+        <resources>
+            <googlebasemax_setup>
+                <setup>
+                    <module>Sockbin_Googlebasemax</module>
+                </setup>
+            </googlebasemax_setup>
+        </resources>
+        <template>
+            <email>
+                <googlebasemax_generate_error_email_template translate="label" module="googlebasemax">
+                    <label>Googlebasemax generate Warnings</label>
+                    <file>googlebasemax_generate_warning.html</file>
+                    <type>text</type>
+                </googlebasemax_generate_error_email_template>
+            </email>
+        </template>
+    </global>
+    <admin>
+		<routers>
+		   <adminhtml>
+<!--                <use>admin</use>
+                <args>
+                    <module>Sockbin_Googlebasemax_Adminhtml</module>
+                    <frontName>admin</frontName>
+                    <modules>
+		         		<sintax after="Sockbin_Googlebasemax_Adminhtml">Mage_Adminhtml</sintax>
+		       		</modules>
+                </args>-->
+                <args>
+                    <modules>
+                        <Sockbin_Googlebasemax after="Mage_Adminhtml">Sockbin_Googlebasemax</Sockbin_Googlebasemax>
+                    </modules>
+                </args>
+		   </adminhtml>
+	     </routers>    	
+	</admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Sockbin_Googlebasemax>
+                    <files>
+                        <default>Sockbin_Googlebasemax.csv</default>
+                    </files>
+                </Sockbin_Googlebasemax>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <general>
+            <file>
+                <googlebasemax_generate_valid_paths>
+                    <available>
+                        <any_path>/*/googlebase.txt</any_path>
+                    </available>
+                </googlebasemax_generate_valid_paths>
+            </file>
+        </general>
+        <googlebasemax>
+<!--            <page>
+                <priority>0.25</priority>
+                <changefreq>daily</changefreq>
+            </page>-->
+<!--            <category>
+                <priority>0.5</priority>
+                <changefreq>daily</changefreq>
+            </category>-->
+            <product>
+                <priority>1</priority>
+                <changefreq>daily</changefreq>
+            </product>
+            <generate>
+                <enabled>0</enabled>
+                <error_email/>
+                <error_email_template>googlebasemax_generate_error_email_template</error_email_template>
+                <error_email_identity>general</error_email_identity>
+            </generate>
+        </googlebasemax>
+    </default>
+    <crontab>
+        <jobs>
+            <googlebasemax_generate>
+                <run>
+                    <model>googlebasemax/observer::scheduledGenerateGooglebasemaxs</model>
+                </run>
+            </googlebasemax_generate>
+        </jobs>
+    </crontab>
+<!--    <stores>
+        <admin>
+            <design>
+                <package>
+                    <name>default</name>
+                </package>
+                <theme>
+                    <default>sockbin</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>-->
+</config>

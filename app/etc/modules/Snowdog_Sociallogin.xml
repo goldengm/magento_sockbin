@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Snowdog_Sociallogin>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+      <depends>
+        <Apptha_Sociallogin />
+      </depends>
+    </Snowdog_Sociallogin>
+  </modules>
+</config>

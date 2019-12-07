@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <checkout_cart_index translate="label">
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/snowpobox.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <reference name="checkout.cart">
+                <action method="setTemplate">
+                    <value>snowpobox/cart.phtml</value>
+                </action>
+            </reference>
+        </reference>
+        <block type="core/text_list" name="additional.product.info" translate="label">
+            <label>Additional Product Info</label>
+        </block>
+    </checkout_cart_index>
+
+    <firecheckout_index_index translate="label">
+        <reference name="content">
+            <reference name="checkout.onepage.payment">
+                <reference name="checkout.payment.methods">
+                    <action method="setTemplate">
+                        <template>snowpobox/payments/methods.phtml</template>
+                    </action>
+                </reference>
+            </reference>
+        </reference>
+    </firecheckout_index_index>
+</layout>   
+	

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetFulfillmentPreviewResponse xmlns="http://mws.amazonaws.com/FulfillmentOutboundShipment/2010-10-01/">
+  <GetFulfillmentPreviewResult>
+    <!--Optional:-->
+    <FulfillmentPreviews>
+      <!--1 or more repetitions:-->
+      <member>
+        <ShippingSpeedCategory>string</ShippingSpeedCategory>
+        <IsFulfillable>false</IsFulfillable>
+        <!--Optional:-->
+        <EstimatedShippingWeight>
+          <Unit>string</Unit>
+          <Value>string</Value>
+        </EstimatedShippingWeight>
+        <!--Optional:-->
+        <EstimatedFees>
+          <!--1 or more repetitions:-->
+          <member>
+            <Name>string</Name>
+            <Amount>
+              <CurrencyCode>string</CurrencyCode>
+              <Value>string</Value>
+            </Amount>
+          </member>
+        </EstimatedFees>
+        <!--Optional:-->
+        <FulfillmentPreviewShipments>
+          <!--1 or more repetitions:-->
+          <member>
+            <EarliestShipDate>2007-10-26T06:36:28</EarliestShipDate>
+            <LatestShipDate>2004-02-14T18:44:14</LatestShipDate>
+            <EarliestArrivalDate>2018-11-01T05:36:46+00:00</EarliestArrivalDate>
+            <LatestArrivalDate>2013-05-22T01:02:49+00:00</LatestArrivalDate>
+            <FulfillmentPreviewItems>
+              <!--1 or more repetitions:-->
+              <member>
+                <SellerSKU>string</SellerSKU>
+                <Quantity>100</Quantity>
+                <SellerFulfillmentOrderItemId>string</SellerFulfillmentOrderItemId>
+                <!--Optional:-->
+                <EstimatedShippingWeight>
+                  <Unit>string</Unit>
+                  <Value>string</Value>
+                </EstimatedShippingWeight>
+                <!--Optional:-->
+                <ShippingWeightCalculationMethod>string</ShippingWeightCalculationMethod>
+              </member>
+            </FulfillmentPreviewItems>
+          </member>
+        </FulfillmentPreviewShipments>
+        <!--Optional:-->
+        <UnfulfillablePreviewItems>
+          <!--1 or more repetitions:-->
+          <member>
+            <SellerSKU>string</SellerSKU>
+            <Quantity>100</Quantity>
+            <SellerFulfillmentOrderItemId>string</SellerFulfillmentOrderItemId>
+            <!--Optional:-->
+            <ItemUnfulfillableReasons>
+              <!--1 or more repetitions:-->
+              <member>string</member>
+            </ItemUnfulfillableReasons>
+          </member>
+        </UnfulfillablePreviewItems>
+        <!--Optional:-->
+        <OrderUnfulfillableReasons>
+          <!--1 or more repetitions:-->
+          <member>string</member>
+        </OrderUnfulfillableReasons>
+      </member>
+    </FulfillmentPreviews>
+  </GetFulfillmentPreviewResult>
+  <ResponseMetadata>
+    <RequestId>string</RequestId>
+  </ResponseMetadata>
+</GetFulfillmentPreviewResponse>

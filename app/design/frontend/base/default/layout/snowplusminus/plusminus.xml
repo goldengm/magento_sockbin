@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_category_layered>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/snowplusminus/plusminus.js</name>
+            </action>
+        </reference>
+    </catalog_category_layered>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/snowplusminus/plusminus.js</name>
+            </action>
+        </reference>
+    </catalogsearch_result_index>
+
+    <checkout_cart_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/snowplusminus/plusminus.js</name>
+            </action>
+        </reference>
+    </checkout_cart_index>
+
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/snowplusminus/plusminusmini.js</name>
+            </action>
+        </reference>
+    </default>
+</layout>

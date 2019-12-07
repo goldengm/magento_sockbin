@@ -1,0 +1,8 @@
+#Hardik Ajax Cart
+/src/app/code/local/Hardik/Ajaxcart /app/code/local/Hardik/Ajaxcart
+/src/app/design/frontend/base/default/layout/ajaxcart.xml /app/design/frontend/base/default/layout/ajaxcart.xml
+/src/app/design/frontend/base/default/template/ajaxcart  /app/design/frontend/base/default/template/ajaxcart
+/src/app/design/frontend/rwd/default/layout/ajaxcart.xml /app/design/frontend/rwd/default/layout/ajaxcart.xml
+/src/app/design/frontend/rwd/default/template/ajaxcart  app/design/frontend/rwd/default/template/ajaxcart
+/src/app/etc/modules/Hardik_Ajaxcart.xml /app/etc/modules/Hardik_Ajaxcart.xml
+/src/skin/frontend/base/default/ajaxcart /skin/frontend/base/default/ajaxcart

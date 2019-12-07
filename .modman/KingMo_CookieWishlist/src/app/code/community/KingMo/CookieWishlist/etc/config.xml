@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<KingMo_CookieWishlist>
+			<version>1.0.0</version>
+		</KingMo_CookieWishlist>
+	</modules>
+	<frontend>
+		<routers>
+			<wishlist>
+				<args>
+					<modules>
+						<kingmo_cookiewishlist before="Mage_Wishlist">KingMo_CookieWishlist</kingmo_cookiewishlist>
+					</modules>
+				</args>
+			</wishlist>
+		</routers>
+	</frontend>
+	<global>
+		<resources>
+			<kingmo_cookiewishlist_setup>
+				<setup>
+					<module>KingMo_CookieWishlist</module>
+				</setup>
+			</kingmo_cookiewishlist_setup>
+        </resources>
+		<models>
+			<wishlist>
+				<rewrite>
+					<wishlist>KingMo_CookieWishlist_Model_Wishlist</wishlist>
+					<observer>KingMo_CookieWishlist_Model_Observer</observer>
+				</rewrite>
+			</wishlist>
+		</models>
+		<helpers>
+			<wishlist>
+				<rewrite>
+					<data>KingMo_CookieWishlist_Helper_Data</data>
+				</rewrite>
+			</wishlist>
+		</helpers>
+	</global>
+</config>

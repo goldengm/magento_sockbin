@@ -1,0 +1,119 @@
+<?php
+
+$page_type = Mage::app()->getFrontController()->getRequest()->getControllerName();
+
+if ($page_type == 'index') : ?>
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'home',
+            ecomm_prodid: '', 
+            ecomm_totalvalue: 0
+        };
+    </script>
+
+<?php elseif ($page_type == 'category') : ?>
+    
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'category',
+            ecomm_prodid: '',
+            ecomm_totalvalue: 0
+        };
+    </script>
+
+<?php elseif ($page_type == 'product') :
+    
+    $product_id = Mage::registry('current_product')->getId();
+    $product_id = Mage::getModel('catalog/product')->load($product_id)->getSku();
+    $product_price = Mage::registry('current_product')->getPrice(); ?>
+    
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'product',
+            ecomm_prodid: '<?php echo $product_id; ?>',
+            ecomm_totalvalue: <?php echo $product_price; ?>
+        };
+    </script>
+
+<?php elseif ($page_type == 'cart') :
+    
+    $cart = Mage::getModel('checkout/session')->getQuote();
+   
+    foreach ($cart->getAllItems() as $item) {
+        $product_id       = $item->getProductId();
+        $product_id       = $item->getSku();
+        $product_id_all   = $product_id_all.','.$product_id ;
+        $productPrice     = $item->getProduct()->getPrice();
+        $productPrice_all = $productPrice_all.','.$productPrice;
+    }
+    
+    $product_id_all=substr($product_id_all, 1);
+    $productPrice_all=substr($productPrice_all, 1); ?>
+
+    <script type="text/javascript">
+        var id=[<?php echo $product_id_all; ?>];
+        var price=[<?php echo $productPrice_all; ?>];
+        var google_tag_params = {
+            ecomm_pagetype: 'cart',
+            ecomm_prodid: id,
+            ecomm_totalvalue: price
+        };
+    </script>
+
+<?php elseif ($page_type == 'onepage') :
+    
+    $cart = Mage::getModel('checkout/session')->getQuote();
+
+    foreach ($cart->getAllItems() as $item) {
+        $product_id = $item->getProductId();
+        $product_id = $item->getSku();
+        $product_id_all = $product_id_all.','.$product_id ;
+        $productPrice = $item->getProduct()->getPrice(); 
+        $productPrice_all = $productPrice_all.','.$productPrice;
+    }
+
+    $product_id_all=substr($product_id_all, 1);
+    $productPrice_all=substr($productPrice_all, 1); ?>
+
+    <script type="text/javascript">
+        var id=[<?php echo $product_id_all; ?>];
+        var price=[<?php echo $productPrice_all; ?>];
+        var google_tag_params = {
+            ecomm_pagetype: 'purchase',
+            ecomm_prodid: id,
+            ecomm_totalvalue: price
+        };
+    </script>
+
+<?php else : ?>
+
+    <script type="text/javascript">
+        var google_tag_params = {
+            ecomm_pagetype: 'other',
+            ecomm_prodid: '',
+            ecomm_totalvalue: 0
+        };
+    </script>
+
+<?php endif; ?>
+
+<script type="text/javascript">
+    /* <![CDATA[ */ 
+    var google_conversion_id = 987546399;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+<noscript>
+    <div style="display:inline;">
+        <img height="1" 
+             width="1" 
+             style="border-style:none;" 
+             alt="" 
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/987546399/?value=0&guid=ON&script=0" />
+    </div>
+</noscript>

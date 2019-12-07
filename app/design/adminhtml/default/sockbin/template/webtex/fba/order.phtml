@@ -1,0 +1,89 @@
+<?php
+/**
+ * Webtex
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled
+ * with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.webtexsoftware.com/LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@webtexsoftware.com and we will send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to http://www.webtexsoftware.com for more information,
+ * or contact us through this email: info@webtexsoftware.com.
+ *
+ * @category   Webtex
+ * @package    Webtex_Fba
+ * @copyright  Copyright (c) 2011 Webtex Solutions, LLC (http://www.webtexsoftware.com/)
+ * @license    http://www.webtexsoftware.com/LICENSE.txt End-User License Agreement
+ */
+/** @var Webtex_Fba_Block_Adminhtml_Order $this */
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head"><h4><?php echo Mage::helper('sales')->__('Amazon Request Info:') ?></h4></div>
+    <fieldset>
+        <?php if (!$this->getQuery()): ?>
+            <div>
+                <?php echo $this->getChildHtml('send_query_button') ?>
+            </div>
+        <?php else : ?>
+            <div><?php echo Mage::helper('sales')->__('Query Id:') . " " . $this->getQuery()->getId() ?></div>
+            <div><?php echo Mage::helper('sales')->__('Query Status:') . " " . $this->getQueryStatus() ?></div>
+            <div><?php echo Mage::helper('sales')->__('Query Time:') . " " . $this->getQuery()->getExecutionTime() ?></div>
+            <div><a href="<?php echo $this->getQueryUrl() ?>"><?php echo Mage::helper('sales')->__('Details') ?></a>
+            </div>
+            <?php if ($this->getQuery()->getStatus() == Webtex_Fba_Model_Mws_Query::STATUS_FAULT): ?>
+                <div>
+                    <?php echo $this->getChildHtml('resend_query_button') ?>
+                </div>
+            <?php endif ?>
+        <?php endif ?>
+    </fieldset>
+</div>
+<?php $blockedQty = $this->getBlockedQty() ?>
+<?php if (count($blockedQty)): ?>
+    <div class="clear"></div>
+    <div class="entry-edit">
+        <div class="entry-edit-head"><h4><?php echo Mage::helper('sales')->__('Blocked Qty:') ?></h4></div>
+        <fieldset>
+            <div class="grid np">
+                <div class="hor-scroll">
+                    <table cellspacing="0" class="data order-tables">
+                        <col/>
+                        <col/>
+                        <thead>
+                        <tr class="headings">
+                            <th><?php echo Mage::helper('fba')->__('Sku') ?></th>
+                            <th><span class="nobr"><?php echo Mage::helper('fba')->__('Blocked Qty') ?></span></th>
+                        </tr>
+                        </thead>
+                        <?php $i = 0;
+                        foreach ($blockedQty as $sku => $qty): ?>
+                            <?php $i++; ?>
+                            <tbody class="<?php echo $i % 2 ? 'even' : 'odd' ?>">
+                            <tr class="border">
+                                <td>
+                                    <?php echo $sku ?>
+                                </td>
+                                <td>
+                                    <?php echo $qty ?>
+                                </td>
+                            </tr>
+                            </tbody>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+            </div>
+            <div style="margin-top:5px;">
+                <?php echo $this->getChildHtml('unblock_all_btn') ?>
+            </div>
+        </fieldset>
+    </div>
+<?php endif ?>

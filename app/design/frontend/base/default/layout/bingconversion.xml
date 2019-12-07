@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_success translate="label">
+        <reference name="before_body_end">
+            <block type="snowbingconversion/index" name="bingconversion_index" template="bingconversion/index.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+</layout>   
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_BlockCache>
+            <active>true</active>
+            <codePool>community</codePool>
+            <version>0.1.0</version>
+            <depends>
+                <Mage_Cms />
+            </depends>
+        </Snowdog_BlockCache>
+    </modules>
+</config>

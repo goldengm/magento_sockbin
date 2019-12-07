@@ -1,0 +1,17 @@
+$mq-support: true;
+$mq-fixed-value: false;
+
+@import "framework";
+@import "core";
+
+// ----------------------------------------------
+// Modules
+
+@import "module/checkout-cart-minicart";
+@import "module/search";
+@import "module/cms";
+@import "module/cookies";
+
+// ----------------------------------------------
+// Override
+@import "override/plugin";

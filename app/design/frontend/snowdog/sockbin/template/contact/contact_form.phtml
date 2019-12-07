@@ -1,0 +1,60 @@
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<form action="<?php echo Mage::getUrl('contacts/index/post'); ?>" id="contactform" class="contactform" method="post">
+	<div class="fieldset">
+		<h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Sockbin') ?></h2>
+		<p class="required">
+			<?php echo Mage::helper('contacts')->__('* Required Fields') ?>
+		</p>
+		<ul class="form-list row">
+			<li class="field col col--6">
+				<label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Your Name') ?></label>
+				<div class="input-box">
+					<input name="name" id="name" placeholder="<?php echo Mage::helper('contacts')->__('Your Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+				</div>
+			</li>
+			<li class="field col col--6">
+				<label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Your Email') ?></label>
+				<div class="input-box">
+					<input name="email" id="email" placeholder="<?php echo Mage::helper('contacts')->__('Your Email Address') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+				</div>
+			</li>
+			<li class="field col col--6">
+				<label for="ordernumber"><?php echo Mage::helper('contacts')->__('Order Number (Optional)') ?></label>
+				<div class="input-box">
+					<input name="ordernumber" id="ordernumber" placeholder="<?php echo Mage::helper('contacts')->__('Order Number') ?>" class="input-text" type="text" />
+				</div>
+			</li>
+			<li class="field col col--12">
+				<label for="comment" class="required">
+					<em>*</em><?php echo Mage::helper('contacts')->__('Your Message') ?>
+				</label>
+				<div class="input-box">
+					<textarea name="comment" id="comment" placeholder="<?php echo Mage::helper('contacts')->__('How We Can Help?') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="buttons-set">
+		<input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+
+		<div class="input-box checkbox">
+			<?php
+				$reCaptchaKey = Mage::helper('snowrecaptcha')
+					->getApiKey();
+
+				if ($reCaptchaKey) {
+			?>
+				<div class="g-recaptcha" data-sitekey="<?php echo $reCaptchaKey; ?>"></div>
+			<?php } ?>
+		</div>
+
+		<button type="submit" title="<?php echo Mage::helper('contacts')->__('Send') ?>" class="button">
+			<span><span><?php echo Mage::helper('contacts')->__('Send') ?></span></span>
+		</button>
+	</div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+var contactform = new VarienForm('contactform', false);
+//]]>
+</script>

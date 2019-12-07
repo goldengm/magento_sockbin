@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_OrdersId>
+            <version>0.1.0</version>
+        </Snowdog_OrdersId>
+    </modules>
+
+    <global>
+        <resources>
+            <snowordersid_setup>
+                <setup>
+                    <module>Snowdog_OrdersId</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </snowordersid_setup>
+        </resources>
+    </global>
+</config>

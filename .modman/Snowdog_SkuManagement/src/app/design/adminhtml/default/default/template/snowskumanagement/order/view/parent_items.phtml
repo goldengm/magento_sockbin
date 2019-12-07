@@ -1,0 +1,49 @@
+<?php $_order = $this->getOrder() ?>
+<div class="grid np">
+    <div class="hor-scroll">
+        <table cellspacing="0" class="data order-tables">
+            <thead>
+            <tr class="headings">
+                <th><?php echo $this->helper('sales')->__('Parent Sku') ?></th>
+                <th><?php echo $this->helper('sales')->__('Parent Options') ?></th>
+                <th><?php echo $this->helper('sales')->__('Children Sku') ?></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Total Pairs Ordered') ?></span></th>
+            </tr>
+            </thead>
+            <?php
+                $_items = $this->getItemsCollection();
+                $itemsAdded = 0;
+            ?>
+            <tbody>
+            <?php foreach ($_items as $item) { ?>
+                <?php if ($item->getData('skumanagement_parent_sku')) : ?>
+                    <?php $itemsAdded++; ?>
+                    <tr>
+                        <td><?php echo $item->getData('skumanagement_parent_sku'); ?></td>
+                        <td>
+                            <?php
+                                $additional = $item->getData('skumanagement_parent_additional');
+                                if ($additional) {
+                                    $additionalUns = unserialize($additional);
+                                    $options = $additionalUns['attributes_info'];
+                                    foreach ($options as $_option) {
+                            ?>
+                                        <?php echo $this->escapeHtml($_option['label']) . ': ' ?>
+                                        <?php echo nl2br($this->escapeHtml( (isset($_option['print_value']) ? $_option['print_value'] : $_option['value']) )) ?>
+                                        <br/>
+                                    <?php } ?>
+                            <?php } ?>
+                        </td>
+                        <td><?php echo $item->getData('sku'); ?></td>
+                        <td><?php echo $item->getData('skumanagement_parent_qty'); ?></td>
+                    </tr>
+                <?php endif; ?>
+            <?php } ?>
+            </tbody>
+        </table>
+        <?php if ($itemsAdded == 0) : ?>
+            <p><?php echo $this->__('There are no parent items ordered'); ?></p>
+        <?php endif; ?>
+    </div>
+</div>
+<br />

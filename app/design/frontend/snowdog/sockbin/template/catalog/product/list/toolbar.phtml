@@ -1,0 +1,73 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @see Mage_Catalog_Block_Product_List_Toolbar
+ */
+?>
+<?php if($this->getCollection()->getSize()): ?>
+<div class="toolbar">
+    <?php if( $this->isExpanded() ): ?>
+        <div class="sorter">
+            <div class="sort-by">
+                <label><?php echo $this->__('Sort By') ?></label>
+                <label class="select-fancy">
+                    <select onchange="setLocation(this.value)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sort By')) ?>">
+                        <option value="<?php echo $this->getOrderUrl('recentlyadded', 'desc') ?>"<?php if($this->getCurrentOrder() == 'recentlyadded'): ?> selected="selected"<?php endif; ?>>
+                            <?php echo $this->__("New Arrivals") ?>
+                        </option>
+                        <option value="<?php echo $this->getOrderUrl('lowest_price', 'asc') ?>"<?php if(($this->getCurrentOrder() == 'lowest_price' || $this->getCurrentOrder() == 'price') && $this->getCurrentDirection() == 'asc'): ?> selected="selected"<?php endif; ?>>
+                            <?php echo $this->__("Lowest Price") ?>
+                        </option>
+                        <option value="<?php echo $this->getOrderUrl('lowest_price', 'desc') ?>"<?php if(($this->getCurrentOrder() == 'lowest_price' || $this->getCurrentOrder() == 'price') && $this->getCurrentDirection() == 'desc'): ?> selected="selected"<?php endif; ?>>
+                            <?php echo $this->__("Highest Price") ?>
+                        </option>
+                    </select>
+                </label>
+            </div>
+            <div class="limiter">
+                <label><?php echo $this->__('Show') ?></label>
+                <div class="select-fancy">
+                    <select onchange="setLocation(this.value)" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Results per page')); ?>">
+                    <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+                        <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+                            <?php echo $_limit ?>
+                        </option>
+                    <?php endforeach; ?>
+                    </select>
+                </div>
+                <label class="items"><?php echo $this->__('items per page') ?></label>
+            </div>
+        </div>
+    <?php endif; ?>
+    <div class="pager">
+        <?php echo $this->getPagerHtml() ?>
+    </div>
+</div>
+<?php endif ?>

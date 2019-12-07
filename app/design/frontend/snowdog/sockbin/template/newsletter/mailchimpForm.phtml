@@ -1,0 +1,132 @@
+<?php
+$_helper = Mage::helper('popupoption');
+$popupStatus = $_helper->getPopupStatus();
+
+if ($popupStatus !== "0"): ?>
+    <div class="desktop-mc">
+        <div id="mc_embed_signup"
+             data-expired="<?php echo $_helper->getExpiry(); ?>"
+             data-last_restart="<?php echo $_helper->getLastRestart(); ?>"
+             data-refresh_page="<?php echo $_helper->getRefreshPage(); ?>"
+             data-last_page="<?php echo $_helper->getLastPageView(); ?>"
+        >
+            <div id="mc-wrapper">
+                <div class="mc_embed_close_div">
+                    <a href="#" id="mc_embed_close" class="mc_embed_close">X</a>
+                </div>
+                <div id="mc-popup-wrapper">
+                    <div id="email-popup-footer">
+                        <div class="mc_static-block">
+                            <div class="mc_static-block_mobile">
+                                <?php echo $_helper->getMobileBlock(); ?>
+                            </div>
+                            <div class="mc_static-block_desktop">
+                                <?php echo $_helper->getBlock(); ?>
+                            </div>
+                        </div>
+                        <?php if ($popupStatus == 'block_email') : ?>
+                            <form action="<?php echo $this->getUrl('snownewsletter/subscriber/newAjax') ?>"
+                                  method="post" 
+                                  id="mc-embedded-subscribe-form" 
+                                  name="mc-embedded-subscribe-form"
+                                  class="validate" novalidate
+                            >
+                                <div id="mc-signup-text">
+                                    <?php echo $_helper->getSingupText(); ?>
+                                </div>
+                                <div class="mc-field-group" id="mce-field-group">
+                                    <input type="email" 
+                                           name="email"
+                                           placeholder="<?= $this->__('Email') ?>"
+                                           class="required-entry validate-email" 
+                                           id="mce-EMAIL" />
+                                </div>
+                                <div id="mce-subscribe">
+                                    <input type="submit" 
+                                           value="Submit" 
+                                           name="submit" 
+                                           id="mc-embedded-subscribe" 
+                                           class="button" />
+                                </div>
+                                <div id="loading-message" style="display:none">
+                                    <p><?php echo $this->__('Please wait ...'); ?></p>
+                                </div>
+                                <div id="show-message" style="display:none"></div>
+                            </form>
+                            <p class="spam">
+                                <?php echo $this->__('*No spam guaranteed'); ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('mc-embedded-subscribe-form');
+        //]]>
+    </script>
+    
+    <script type="text/javascript">
+        function mcEvilPopupClose() {
+            jQuery('#mc_embed_signup').hide();
+            var expires_date;
+            var now = new Date();
+            expires_date = new Date(now.getTime() + 31536000000);
+            document.cookie = 'MCEvilPopupClosed=' + now.getTime() + ';expires=' + expires_date.toGMTString() + ';path=/';
+            document.cookie = 'MCEvilRefreshPage=0;expires=' + new Date(now.getTime() + 31536000000) + ';path=/';
+        }
+    </script>
+    
+    <script type="text/javascript">
+        $j(document).ready( function() {
+            $j('#mc-embedded-subscribe').on( 'click', function(e) {
+                var email  = $j('#mce-EMAIL').val(),
+                    _url   = $j('#mc-embedded-subscribe-form').attr('action'),
+                    _input = $j(this),
+                    _data  = _url;
+
+                e.preventDefault();
+
+                if ( newsletterSubscriberFormDetail.validator.validate() ) {
+                    
+                    try {    
+                        $j('#loading-message').show();
+                        _input.prop('disabled', true);
+                        
+                        $j.ajax({
+                            url: _data,
+                            dataType: 'json',
+                            type: 'POST',
+                            data: { 
+                                email: email
+                            },
+                            success: function (data) {
+                                if ( data.status != 'ERROR' ) {
+                                    _input.prop('disabled', false);
+                                    $j('#mce-EMAIL').val('');
+                                    $j('#loading-message').hide();
+                                    $j('#show-message').removeAttr("style");
+                                    $j('#show-message').html(data.message).show();
+                                    setTimeout( function() {
+                                        $j('#show-message').hide();
+                                        mcEvilPopupClose();
+                                    }, 5000);
+                                } else {
+                                    _input.prop('disabled', false);
+                                    $j('#loading-message').hide();
+                                    $j('#show-message').css("color", "red");
+                                    $j('#show-message').html(data.message).show();
+                                }
+                            }
+                        });
+                    } catch (e) {
+                        
+                    }
+                }
+            });
+        });    
+    </script>
+<?php endif; ?>

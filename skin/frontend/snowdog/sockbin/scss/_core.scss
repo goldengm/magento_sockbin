@@ -1,0 +1,23 @@
+// ==============================================
+// Core Application
+// ==============================================
+
+// ----------------------------------------------
+// Browser Resets
+
+@import "vendor/normalize";
+@import "core/reset";
+
+// ----------------------------------------------
+// Core
+
+@import "core/common";
+@import "core/form";
+@import "core/table";
+
+// ----------------------------------------------
+// Layout
+
+@import "layout/global";
+@import "layout/header";
+@import "layout/footer";

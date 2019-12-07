@@ -1,0 +1,4 @@
+/src/app/code/local/Snowdog/SkuManagement                               /app/code/local/Snowdog/SkuManagement
+/src/app/design/adminhtml/default/default/layout/snowskumanagement      /app/design/adminhtml/default/sockbin/layout/snowskumanagement
+/src/app/design/adminhtml/default/default/template/snowskumanagement    /app/design/adminhtml/default/sockbin/template/snowskumanagement
+/src/app/etc/modules/Snowdog_SkuManagement.xml                          /app/etc/modules/Snowdog_SkuManagement.xml

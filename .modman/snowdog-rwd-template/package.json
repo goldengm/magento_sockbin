@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "gulp": "^3.8.10g",
+    "gulp-ruby-sass": "^1.0.0"
+  }
+}

@@ -1,0 +1,203 @@
+/*
+// ----------------------------------------------
+// Usage example:
+// For IE set $mq-support to false.
+// Set the fixed value.
+// Then use mixins to test whether styles should be applied.
+// ----------------------------------------------
+
+$mq-support: false;
+$mq-fixed-value: 1024;
+
+// Renders at fixed value
+@include bp (min-width, 300px) { 
+    div { color:#000; }
+}
+
+// Doesn't render without MQ support
+@include bp (min-width, 1200px) { 
+    div { color:#FFF; }
+}
+
+// Doesn't render without MQ support
+@include bp (max-width, 300px) { 
+    div { color:#444; }
+}
+
+// Renders at fixed value
+@include bp (max-width, 1200px) { 
+    div { color:#888; }
+}
+
+// ----------------------------------------------
+*/
+/* Font Styles */
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,500,700);
+/* Media Queries */
+/* Setting the Web Font inside a media query so that Outlook doesn't try to render the web font */
+@media screen {
+  /* line 16, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .email-heading h1,
+  .store-info h4,
+  th.cell-name,
+  a.product-name,
+  p.product-name,
+  .address-details h6,
+  .method-info h6,
+  h5.closing-text,
+  .action-button,
+  .action-button a,
+  .action-button span,
+  .action-content h1 {
+    font-family: 'Raleway', Verdana, Arial !important;
+    font-weight: normal;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 34, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  body {
+    width: 94% !important;
+    padding: 0 3% !important;
+    display: block !important;
+  }
+
+  /* line 39, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .container-table {
+    width: 100% !important;
+    max-width: 600px;
+    min-width: 300px;
+  }
+
+  /* line 44, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  td.store-info h4 {
+    margin-top: 8px !important;
+    margin-bottom: 0px !important;
+  }
+
+  /* line 48, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  td.store-info p {
+    margin: 5px 0 !important;
+  }
+
+  /* line 51, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .wrapper {
+    width: 100% !important;
+    display: block;
+    padding: 5px 0 !important;
+  }
+
+  /* line 56, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .cell-name,
+  .cell-content {
+    padding: 8px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  /* line 63, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .email-heading,
+  .store-info {
+    float: left;
+    width: 98% !important;
+    display: block;
+    text-align: center;
+    padding: 10px 1% !important;
+    border-right: 0px !important;
+  }
+
+  /* line 72, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .address-details, .method-info {
+    width: 85%;
+    display: block;
+  }
+
+  /* line 76, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .store-info {
+    border-top: 1px dashed #C3CED4;
+  }
+
+  /* line 79, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .method-info {
+    margin-bottom: 15px !important;
+  }
+}
+/* Remove link color on iOS */
+/* line 85, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+.no-link a {
+  color: #333333 !important;
+  cursor: default !important;
+  text-decoration: none !important;
+}
+
+/* line 91, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+.method-info h6,
+.address-details h6,
+.closing-text {
+  color: #3696C2 !important;
+}
+
+/* line 96, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+td.order-details h3,
+td.store-info h4 {
+  color: #333333 !important;
+}
+
+/* line 100, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+.method-info p,
+.method-info dl {
+  margin: 5px 0 !important;
+  font-size: 12px !important;
+}
+
+/* line 105, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+td.align-center {
+  text-align: center !important;
+}
+
+/* line 108, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+td.align-right {
+  text-align: right !important;
+}
+
+/* Newsletter styles */
+/* line 113, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+td.expander {
+  padding: 0 !important;
+}
+
+/* line 116, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+table.button td,
+table.social-button td {
+  width: 92% !important;
+}
+
+/* line 120, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+table.facebook:hover td {
+  background: #2d4473 !important;
+}
+
+/* line 123, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+table.twitter:hover td {
+  background: #0087bb !important;
+}
+
+/* line 126, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+table.google-plus:hover td {
+  background: #CC0000 !important;
+}
+
+/* ============================================ *
+ * Product Grid
+ * ============================================ */
+@media screen and (max-width: 600px) {
+  /* line 135, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+  .products-grid tr td {
+    width: 50% !important;
+    display: block !important;
+    float: left !important;
+  }
+}
+/* line 142, skin/frontend/snowdog/default/scss/email-non-inline.scss */
+.product-name a:hover {
+  color: #3399CC !important;
+  text-decoration: none !important;
+}

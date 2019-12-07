@@ -1,0 +1,618 @@
+//
+// Magento
+//
+// NOTICE OF LICENSE
+//
+// This source file is subject to the Academic Free License (AFL 3.0)
+// that is bundled with this package in the file LICENSE_AFL.txt.
+// It is also available through the world-wide-web at this URL:
+// http://opensource.org/licenses/afl-3.0.php
+// If you did not receive a copy of the license and are unable to
+// obtain it through the world-wide-web, please send an email
+// to license@magento.com so we can send you a copy immediately.
+//
+// DISCLAIMER
+//
+// Do not edit or add to this file if you wish to upgrade Magento to newer
+// versions in the future. If you wish to customize Magento for your
+// needs please refer to http://www.magento.com for more information.
+//
+// @category    design
+// @package     rwd_default
+// @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+// @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+//
+
+/* ============================================ *
+ * Homepage
+ * ============================================ */
+
+/* -------------------------------------------- *
+ * Primary Banner
+ */
+
+body.cms-index-index {
+    display: block;
+
+    .slideshow-container {
+        margin-top: 0;
+    }
+
+    .main-container {
+        padding: 0;
+    }
+}
+
+.slideshow .banner-msg {
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    top: 30%;
+    @include not-selectable;
+}
+
+.slideshow .banner-msg h2 {
+    color: #FFFFFF;
+    font-size: 24px;
+    @include single-text-shadow(1px, 1px, 3px, false, #555555);
+}
+
+.slideshow .banner-msg h2 strong {
+    font-weight: bold;
+    display: block;
+    font-size: 36px;
+}
+
+@include bp(max-width, $bp-medium) {
+
+    .slideshow .banner-msg h2 {
+        font-size: 20px;
+    }
+
+    .slideshow .banner-msg h2 strong {
+        font-size: 24px;
+    }
+}
+
+@include bp(max-width, $bp-xsmall) {
+
+    .slideshow .banner-msg {
+        top: 20%;
+    }
+
+    .slideshow .banner-msg h2 {
+        font-size: 14px;
+    }
+
+    .slideshow .banner-msg h2 strong {
+        font-size: 16px;
+    }
+}
+
+/* -------------------------------------------- *
+ * Homepage Sections
+ */
+
+// Large Button
+.button--lg {
+    font-size: 26px;
+    padding: 25px 30px;
+}
+
+// Medium Button
+.button--md {
+    font-size: 16px;
+    padding: 10px 18px;
+}
+
+// Add Arrow to Buttons
+.button--arrow {
+    &.button--green {
+        background: $c-green url('../images/home/arrow.png') no-repeat 90% center;
+        &:hover {
+            background: darken($c-green, 5%) url('../images/home/arrow.png') no-repeat 90% center;
+        }
+    }
+
+    &.button--lg {
+        padding-right: 55px;
+    }
+
+    &.button--md {
+        background-size: 8px;
+        padding-right: 38px;
+        &:hover {
+            background-size: 8px; 
+        }
+    }
+}
+
+
+// Main Section
+.section {
+    border-bottom: 1px solid #e4e5e5;
+    padding: 60px 0;
+
+    // Section Heading
+    h2 {
+        font-size: 42px;
+        color: $c-black;
+        clear: both;
+        font-weight: 700;
+        text-transform: capitalize;
+        text-align: center;
+    }
+
+}
+
+.section--banner {
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0;
+    min-height: 400px;
+    position: relative;
+    text-align: center;
+
+    .banner-content {
+        max-width: 45%;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+
+        h2 {
+            font-size: 50px;
+            font-weight: 900;
+            text-align: left;
+        }
+
+        a {
+            font-weight: 700;
+            display: inline-block;
+            padding-left: 20px;
+            margin-top: 20px;
+            img {
+                margin: 0 auto;
+            }
+        }
+    }
+    
+    .container {
+        position: relative;
+    }
+
+    .button {
+        position: relative;
+        text-transform: capitalize;
+        z-index: 1;
+        padding: 10px 38px 10px 18px;
+        font-size: 16px;
+    }
+}
+
+.section--shipping {
+
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: $c-black;
+        text-transform: capitalize;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto 30px;
+        max-height: 130px;
+    }
+
+    a {
+        @include link();
+    }
+
+    p {
+        font-size: $f-size-l;
+        color: #7a7d7f;
+    }
+
+    .col {
+        text-align: center;
+    }
+}
+
+.section--products {
+    text-align: center;
+
+    .tab {
+        display: none;
+        margin: 40px 0 0;
+        @include clearfix-extended();
+        
+        &.active {
+            display: block;
+        }
+    }
+
+    .button {
+        clear: both;
+        margin-top: 40px;
+        text-transform: capitalize;
+        padding: 10px 38px 10px 18px;
+        font-size: 16px;
+    }
+}
+
+$categories: (
+    women:  'women',
+    men:    'men',
+    boys:   'boys',
+    girls:  'girls'
+);
+
+.category-tabs {
+    max-width: 80%;
+    margin: 0 auto;
+
+    li {
+        display: inline-block;
+        padding: 0 20px;
+        text-align: center;
+        width: 22%;
+        
+        &:before {
+            content: "";
+            display: inline-block;
+            height: 28px;
+            width: 28px;
+            margin-right: 8px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            vertical-align: middle;
+        }
+
+        @each $key, $value in $categories {
+            &.#{$key}:before {
+                background-image: url('../images/home/#{$key}.png');
+            }
+        }
+
+        @each $key, $value in $categories {
+            &.#{$key}:hover:before,
+            &.#{$key}.active:before {
+                background-image: url('../images/home/#{$key}-active.png');
+            }
+        }
+
+        &.active,
+        &:hover {
+            a {
+                border-color: $c-green;
+                color: $c-green;
+                text-decoration: none;
+            }
+        }
+
+        a {
+            @include link($c-action, 20px);
+            font-weight: 700;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.product-cat {
+    margin-bottom: $trim;
+    text-align: center;
+
+    &:nth-child(3n+1) {
+        clear: left;
+    }
+
+    img {
+        display: block;
+        height: auto;
+        margin: 0 auto 15px;
+        max-height: 110px;
+        max-width: 100%;
+        transition: opacity 0.2s ease;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    a {
+        @include link($c-action, 20px);
+        text-transform: uppercase;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.section--search {
+    background-color: #f2f2f2;
+
+    #search_mini_form {
+        .search-button {
+            width: 80px;
+            background-position: 18px center;
+            &:before {
+                width: 45px;
+            }
+        }
+    }
+
+    .search-wrap {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        span {
+            display: block;
+            margin-bottom: $gap;
+            color: $c-black;
+            font-size: $f-size-xl;
+            font-weight: 700;
+        }
+    }
+}
+
+.section--brands {
+    text-align: center;
+    
+    .container {
+        margin-top: 40px;
+    }
+
+    .col {
+        display: inline-block;
+        float: none;
+        min-height: 120px;
+        margin-bottom: 15px;
+        padding: 0;
+        position: relative;
+        width: 33%;
+
+        img {
+            margin: 0 auto;
+            max-width: 100%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
+.section--subscribe {
+
+    .block-subscribe {
+        .block-title,
+        .form-subscribe-header {
+            display: none;
+        }
+    }
+
+    .block-content {
+        position: relative;
+        padding-top: 0;
+        overflow: hidden;
+        max-width: 420px;
+        margin: 20px auto;
+    }
+
+    .actions {
+        margin: 0;
+        position: absolute;
+        top: 2px;
+        right: 0;
+    }
+
+    .input-box {
+        border-radius: 2px;
+    }
+
+    .input-text {
+        width: 100%;
+        height: 40px;
+        padding-right: 90px;
+        border-radius: 6px;
+    }
+
+    .button {
+        width: auto;
+        height: 40px;
+        border: 0;
+        border-radius: 0 6px 6px 0;
+        text-transform: capitalize;
+    }
+
+    p {
+        padding: 0 80px;
+        text-align: center;
+    }
+
+    a {
+        @include link();
+    }
+
+    .social-links {
+        margin: 20px 0;
+        text-align: center;
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+@include bp(max-width, $max-content-width) {
+    .section--banner {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: left;
+
+        .overlay {
+            display: none;
+        }
+
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 0;
+            background-size: 50%;
+            background-position: right top;
+            width: 100%;
+        }
+
+
+        .button {
+            background: $c-green;
+            font-size: 20px;
+            padding: 20px 18px;
+            border-radius: 8px;
+            &:hover {
+                background: darken($c-green, 5%);
+            }
+        }
+
+        .button--learn-more {
+            background: $c-blue;
+            display: inline-block;
+            &:hover {
+                background: darken($c-blue, 5%);
+            }
+        }
+
+        .banner-content {
+            h2 {
+                font-size: 42px;
+            }
+
+            .learn-more {
+                display: none;
+            }
+        }
+    }
+
+    .category-tabs {
+        max-width: 100%;
+        li:before {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+@include bp(max-width, $bp-medium) {
+    .section h2 {
+        padding: 0 15px;
+    }
+
+    .section--banner {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+
+        .container {
+            background-size: 75%;
+            background-position: center top;
+        }
+
+
+        .button {
+            margin-bottom: 20px;
+            width: 85%;
+        }
+
+        .banner-content {
+            margin-top: 250px;
+            max-width: 100%;
+            text-align: center;
+
+            h2 {
+                font-size: 45px;
+                text-align: center;
+            }
+        }
+    }
+
+    .category-tabs {
+        max-width: 100%;
+        li:before {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .category-tabs li {
+        padding: 0 5px;
+        a {
+            font-size: 16px;
+        }
+    }
+}
+
+@include bp(max-width, $bp-small) {
+    .section--banner {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+
+        .container {
+            background-size: 75%;
+            background-position: center top;
+        }
+
+
+        .button {
+            margin-bottom: 20px;
+            width: 85%;
+        }
+
+        .banner-content {
+            margin-top: 140px;
+            max-width: 100%;
+            text-align: center;
+
+            h2 {
+                font-size: 40px;
+                text-align: center;
+            }
+        }
+    }
+
+    .category-tabs {
+        max-width: 100%;
+        li:before {
+            display: block;
+            margin: 0 auto;
+        }
+        li {
+            padding: 0 5px;
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .section--brands {
+        .col {
+            float: none;
+            display: block;
+            padding: 0 15px;
+            min-height: 0;
+            margin-bottom: $trim;
+            width: 100%;
+
+            img {
+                position: static;
+            }
+        }
+    }
+
+}

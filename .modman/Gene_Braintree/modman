@@ -1,0 +1,14 @@
+/src/app/code/community/Gene/Braintree /app/code/community/Gene/Braintree
+/src/app/design/adminhtml/default/default/layout/gene /app/design/adminhtml/default/default/layout/gene
+/src/app/design/adminhtml/default/default/template/gene /app/design/adminhtml/default/default/template/gene
+/src/app/design/frontend/base/default/layout/gene /app/design/frontend/base/default/layout/gene
+/src/app/design/frontend/base/default/template/gene /app/design/frontend/base/default/template/gene
+/src/app/etc/modules/Gene_Braintree.xml /app/etc/modules/Gene_Braintree.xml
+/src/app/locale/en_US/Gene_Braintree.csv /app/locale/en_US/Gene_Braintree.csv
+/src/js/gene /js/gene
+/src/lib/Braintree /lib/Braintree
+/src/lib/Braintree.php /lib/Braintree.php
+/src/lib/ssl/api_braintreegateway_com.ca.crt /lib/ssl/api_braintreegateway_com.ca.crt
+/src/lib/ssl/sandbox_braintreegateway_com.ca.crt /lib/ssl/sandbox_braintreegateway_com.ca.crt
+/src/skin/frontend/base/default/css/gene /skin/frontend/base/default/css/gene
+/src/skin/frontend/base/default/images/gene /skin/frontend/base/default/images/gene

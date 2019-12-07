@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Snowdog_AmazonProducts>
+      <active>false</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+      <depends>
+        <Webtex_Fba />
+      </depends>
+    </Snowdog_AmazonProducts>
+  </modules>
+</config>

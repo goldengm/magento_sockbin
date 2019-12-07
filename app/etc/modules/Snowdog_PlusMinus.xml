@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Snowdog_PlusMinus>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Snowdog_PlusMinus>
+    </modules>
+</config>

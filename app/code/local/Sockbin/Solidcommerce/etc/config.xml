@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Sockbin
+ * @package     Sockbin_Solidcommerce
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Sockbin_Solidcommerce>
+            <version>1.6.0.0</version>
+        </Sockbin_Solidcommerce>
+    </modules>
+    <global>
+<!--        <blocks>
+            <solidcommerce>
+                <class>Sockbin_Solidcommerce_Block</class>
+            </solidcommerce>
+        </blocks>-->
+        <helpers>
+            <solidcommerce>
+                <class>Sockbin_Solidcommerce_Helper</class>
+            </solidcommerce>
+        </helpers>
+        <models>
+            <solidcommerce>
+                <class>Sockbin_Solidcommerce_Model</class>
+                <resourceModel>solidcommerce_resource</resourceModel>
+            </solidcommerce>
+            <solidcommerce_resource>
+                <class>Sockbin_Solidcommerce_Model_Resource</class>
+                <deprecatedNode>solidcommerce_mysql4</deprecatedNode>
+                <entities>
+                    <solidcommerce>
+                        <table>solidcommerce</table>
+                    </solidcommerce>
+                </entities>
+            </solidcommerce_resource>
+        </models>
+        <resources>
+            <solidcommerce_setup>
+                <setup>
+                    <module>Sockbin_Solidcommerce</module>
+                </setup>
+            </solidcommerce_setup>
+        </resources>
+        <template>
+            <email>
+                <solidcommerce_generate_error_email_template translate="label" module="solidcommerce">
+                    <label>Solidcommerce generate Warnings</label>
+                    <file>solidcommerce_generate_warning.html</file>
+                    <type>text</type>
+                </solidcommerce_generate_error_email_template>
+            </email>
+        </template>
+    </global>
+    <admin>
+		<routers>
+		   <adminhtml>
+                <use>admin</use>
+                <args>
+                    <module>Sockbin_Solidcommerce_Adminhtml</module>
+                    <frontName>admin</frontName>
+                    <modules>
+		         		<sintax after="Sockbin_Solidcommerce_Adminhtml">Mage_Adminhtml</sintax>
+		       		</modules>
+                </args>
+		   </adminhtml>
+	     </routers>    	
+	</admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Sockbin_Solidcommerce>
+                    <files>
+                        <default>Sockbin_Solidcommerce.csv</default>
+                    </files>
+                </Sockbin_Solidcommerce>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <general>
+            <file>
+                <solidcommerce_generate_valid_paths>
+                    <available>
+                        <any_path>/*/solidcommerce.txt</any_path>
+                    </available>
+                </solidcommerce_generate_valid_paths>
+            </file>
+        </general>
+        <solidcommerce>
+<!--            <page>
+                <priority>0.25</priority>
+                <changefreq>daily</changefreq>
+            </page>-->
+<!--            <category>
+                <priority>0.5</priority>
+                <changefreq>daily</changefreq>
+            </category>-->
+            <product>
+                <priority>1</priority>
+                <changefreq>daily</changefreq>
+            </product>
+            <generate>
+                <enabled>0</enabled>
+                <error_email/>
+                <error_email_template>solidcommerce_generate_error_email_template</error_email_template>
+                <error_email_identity>general</error_email_identity>
+            </generate>
+        </solidcommerce>
+    </default>
+    <crontab>
+        <jobs>
+            <solidcommerce_generate>
+                <run>
+                    <model>solidcommerce/observer::scheduledGenerateSolidcommerces</model>
+                </run>
+            </solidcommerce_generate>
+        </jobs>
+    </crontab>
+    <stores>
+        <admin>
+            <design>
+                <package>
+                    <name>default</name>
+                </package>
+                <theme>
+                    <default>sockbin</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>
+</config>

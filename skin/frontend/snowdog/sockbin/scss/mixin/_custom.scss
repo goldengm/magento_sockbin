@@ -1,0 +1,26 @@
+// Container
+@mixin container-lg() {
+    margin: 0 auto;
+    max-width: $max-container-width;
+    padding-left: $trim;
+    padding-right: $trim;
+}
+
+// Clearfix
+@mixin clearfix-extended() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin link( $color: $c-action, $size: 18px ) {
+    border-bottom: 1px solid rgba($color, 0.8);
+    color: $color;
+    font-size: $size;
+    font-weight: 700;
+}

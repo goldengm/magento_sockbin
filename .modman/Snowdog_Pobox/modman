@@ -1,0 +1,6 @@
+/src/app/code/community/Snowdog/Pobox /app/code/community/Snowdog/Pobox
+/src/app/design/frontend/base/default/layout/snowpobox.xml /app/design/frontend/base/default/layout/snowpobox.xml
+/src/app/design/frontend/base/default/template/snowpobox/cart.phtml /app/design/frontend/base/default/template/snowpobox/cart.phtml
+/src/app/design/frontend/base/default/template/snowpobox/payments/methods.phtml /app/design/frontend/base/default/template/snowpobox/payments/methods.phtml
+/src/app/etc/modules/Snowdog_Pobox.xml /app/etc/modules/Snowdog_Pobox.xml
+/src/skin/frontend/base/default/js/snowpobox.js /skin/frontend/base/default/js/snowpobox.js

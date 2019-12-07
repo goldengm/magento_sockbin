@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category	Sockbin
+ * @package		Sockbin_Googlebasemax
+ * @author		Sockbin
+ * @copyright	Copyright 2012 Infortis
+ */
+ -->
+<config>
+    <modules>
+        <Sockbin_Googlebasemax>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sockbin_Googlebasemax>
+    </modules>
+</config>

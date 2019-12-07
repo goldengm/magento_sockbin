@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webtex
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled
+ * with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.webtexsoftware.com/LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@webtexsoftware.com and we will send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to http://www.webtexsoftware.com for more information,
+ * or contact us through this email: info@webtexsoftware.com.
+ *
+ * @category   Webtex
+ * @package    Webtex_Fba
+ * @copyright  Copyright (c) 2011 Webtex Solutions, LLC (http://www.webtexsoftware.com/)
+ * @license    http://www.webtexsoftware.com/LICENSE.txt End-User License Agreement
+ */
+-->
+<layout>
+    <!--marketplace-->
+    <!--<webtex_fba_adminhtml_marketplace_index>-->
+        <!--<reference name="content">-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_Marketplace" name="fba_marketplace" as="fba_marketplace"/>-->
+        <!--</reference>-->
+    <!--</webtex_fba_adminhtml_marketplace_index>-->
+    <!--<webtex_fba_adminhtml_marketplace_edit>-->
+        <!--<reference name="content">-->
+            <!--<block type="fba/adminhtml_marketplace_edit" name="mws_marketplace_edit"/>-->
+        <!--</reference>-->
+        <!--<reference name="left">-->
+            <!--<block type="fba/adminhtml_marketplace_edit_tabs" name="mws_marketplace_edit_tabs">-->
+                <!--<block type="fba/adminhtml_marketplace_edit_tab_main" name="mws_marketplace_edit_tab_main"/>-->
+                <!--<block type="fba/adminhtml_marketplace_edit_tab_inventory" name="mws_marketplace_edit_tab_inventory"/>-->
+                <!--<block type="fba/adminhtml_marketplace_edit_tab_shipping" name="mws_marketplace_edit_tab_shipping"/>-->
+                <!--<action method="addTab">-->
+                    <!--<name>main_section</name>-->
+                    <!--<block>mws_marketplace_edit_tab_main</block>-->
+                <!--</action>-->
+                <!--<action method="addTab">-->
+                    <!--<name>inventory_section</name>-->
+                    <!--<block>mws_marketplace_edit_tab_inventory</block>-->
+                <!--</action>-->
+                <!--<action method="addTab">-->
+                    <!--<name>shipping_section</name>-->
+                    <!--<block>mws_marketplace_edit_tab_shipping</block>-->
+                <!--</action>-->
+            <!--</block>-->
+        <!--</reference>-->
+    <!--</webtex_fba_adminhtml_marketplace_edit>-->
+    <!--&lt;!&ndash;marketplace&ndash;&gt;-->
+
+    <!--<webtex_fba_adminhtml_index_amazonlog>-->
+        <!--<reference name="content">-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_QueryLog" name="fba_query_log" as="fba_query_log"/>-->
+        <!--</reference>-->
+    <!--</webtex_fba_adminhtml_index_amazonlog>-->
+
+    <!--<webtex_fba_adminhtml_index_amazonqueue>-->
+        <!--<reference name="content">-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_Queue_Status" name="queue_status" template="webtex/fba/queue-status.phtml"/>-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_Queue" name="fba_queue" as="fba_queue"/>-->
+        <!--</reference>-->
+    <!--</webtex_fba_adminhtml_index_amazonqueue>-->
+    <!--<webtex_fba_adminhtml_index_carriers>-->
+        <!--<reference name="content">-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_Carriers" name="amazon_carriers" as="amazon_carriers"-->
+                   <!--template="webtex/fba/carriers.phtml"/>-->
+        <!--</reference>-->
+    <!--</webtex_fba_adminhtml_index_carriers>-->
+    <!--<webtex_fba_adminhtml_index_amazonquerydetails>-->
+        <!--<reference name="content">-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_QueryLog_View" name="amazon_query_view" as="amazon_query"/>-->
+        <!--</reference>-->
+    <!--</webtex_fba_adminhtml_index_amazonquerydetails>-->
+    <!--<adminhtml_sales_order_view>-->
+        <!--<reference name="sales_order_tabs">-->
+            <!--<block type="Webtex_Fba_Block_Adminhtml_Order" name="fba_order"-->
+                   <!--template="webtex/fba/order.phtml"/>-->
+            <!--<action method="addTab">-->
+                <!--<name>fba_order</name>-->
+                <!--<block>fba_order</block>-->
+            <!--</action>-->
+        <!--</reference>-->
+    <!--</adminhtml_sales_order_view>-->
+    <!--<adminhtml_catalog_product_simple>-->
+        <!--<reference name="product_tabs">-->
+            <!--<action method="addTab">-->
+                <!--<name>fba</name>-->
+                <!--<block>fba/Adminhtml_Product_Simple_FbaTab</block>-->
+            <!--</action>-->
+        <!--</reference>-->
+    <!--</adminhtml_catalog_product_simple>-->
+    <!--<adminhtml_catalog_product_fba>-->
+        <!--<block type="core/text_list" name="root" output="toHtml">-->
+            <!--<block type="fba/Adminhtml_Product_Simple_FbaTab" name="catalog.product.edit.tab.fba"/>-->
+        <!--</block>-->
+    <!--</adminhtml_catalog_product_fba>-->
+</layout>

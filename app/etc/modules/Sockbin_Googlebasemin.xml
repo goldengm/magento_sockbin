@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category	Sockbin
+ * @package		Sockbin_Googlebasemin
+ * @author		Sockbin
+ * @copyright	Copyright 2014 Sockbin
+ */
+ -->
+<config>
+    <modules>
+        <Sockbin_Googlebasemin>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sockbin_Googlebasemin>
+    </modules>
+</config>

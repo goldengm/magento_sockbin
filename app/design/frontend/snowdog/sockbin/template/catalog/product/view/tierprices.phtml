@@ -1,0 +1,62 @@
+<?php
+    $_product    = $this->getProduct();
+    $_tierPrices = $this->getTierPrices();
+    
+    if ( count( $_tierPrices ) > 0 ):
+        
+        $_data       = array();
+        $_prevQty    = 0;
+        $_tierPrices = array_reverse( $_tierPrices );
+
+        foreach ( $_tierPrices as $_index => $_price ) {
+           
+            $_data[] = array(
+                'label'      => $_price['price_qty'],
+                'price_html' => $_price['formated_price'],
+                'price'      => $_price['price'],
+                'save'       => $_price['savePercent'],
+                'total'      => ( $_price['price'] * $_price['price_qty'] ),
+            );
+
+            $_prevQty = $_price['price_qty'];
+        }
+
+        $_data = array_reverse( $_data );
+    ?>
+
+    <table class="tiered-pricing">
+        <tbody>
+            <tr>
+                <th class="qty"><?php echo $this->__('# of Pairs'); ?>:</th>
+                <th class="price"><?php echo $this->__('Price Per Pair'); ?></th>
+                <th class="total"><?php echo $this->__('Total'); ?></th>
+            </tr>
+            <?php foreach ($_data as $key => $_row): ?>
+                <tr>
+                    <td class="qty tier-<?php echo $key ?>">
+                        <input
+                            type="radio"
+                            class="tier_price_qty"
+                            name="tier_price_qty"
+                            value="<?php echo $_row['label']; ?>"
+                            onclick="
+                                jQuery(document).ready(function (event) {
+                                    jQuery('#qty').val(<?php echo $_row['label']; ?>);
+                                    updateQtyPrice();
+                                });"
+                        />
+                        <label><?php echo $_row['label']; ?></label>
+                    </td>
+                    <td class="price">
+                        <span class="price">
+                            <?php printf('$%.2f', $_row['price']) ?>
+                        </span>
+                    </td>
+                    <td class="total">
+                        <?php printf('$%.2f', $_row['total']) ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

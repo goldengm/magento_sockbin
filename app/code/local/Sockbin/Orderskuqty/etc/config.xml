@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Sockbin_Orderskuqty>
+            <version>0.1.0</version>
+        </Sockbin_Orderskuqty>
+    </modules>
+    <global>
+        <models>
+			<orderskuqty>
+                <class>Sockbin_Orderskuqty_Model</class>
+                <resourceModel>orderskuqty_resource</resourceModel>
+            </orderskuqty>
+            <sales_resource>
+                <rewrite>
+                    <order_grid_collection>Sockbin_Orderskuqty_Model_Mysql4_Order_Grid_Collection</order_grid_collection>
+                </rewrite>
+            </sales_resource>
+        </models>
+		<helpers>
+            <orderskuqty>
+                <class>Sockbin_Orderskuqty_Helper</class>
+            </orderskuqty>
+        </helpers>
+        <blocks>
+			<orderskuqty>
+                <class>Sockbin_Orderskuqty_Block</class>
+            </orderskuqty>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Sockbin_Orderskuqty_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+</config> 

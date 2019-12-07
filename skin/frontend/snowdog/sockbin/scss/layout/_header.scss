@@ -1,0 +1,847 @@
+//
+// Magento
+//
+// NOTICE OF LICENSE
+//
+// This source file is subject to the Academic Free License (AFL 3.0)
+// that is bundled with this package in the file LICENSE_AFL.txt.
+// It is also available through the world-wide-web at this URL:
+// http://opensource.org/licenses/afl-3.0.php
+// If you did not receive a copy of the license and are unable to
+// obtain it through the world-wide-web, please send an email
+// to license@magento.com so we can send you a copy immediately.
+//
+// DISCLAIMER
+//
+// Do not edit or add to this file if you wish to upgrade Magento to newer
+// versions in the future. If you wish to customize Magento for your
+// needs please refer to http://www.magento.com for more information.
+//
+// @category    design
+// @package     rwd_default
+// @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+// @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+//
+
+/* ============================================ *
+ * Header
+ * ============================================ */
+
+#header {
+    background-color: #fff;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.4s ease;
+
+    .container {
+        position: relative;
+        transition: height 0.4s ease;
+    }
+    
+    .header-extras {
+        float: right;
+        width: 60%;
+    }
+
+    &.sticky-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(black,.1);
+        height: 60px;
+        padding: 0 15px;
+        z-index: 200;
+
+        .logo img,
+        .top-account {
+            height: 60px;
+        }
+
+        #header-wrap,
+        .top-search {
+            display: none;
+        }
+        
+        .logo {
+            padding: 0;
+            position: relative;
+            z-index: 1;
+            img {
+                padding: 10px;
+            }
+        }
+
+        .top-account {
+            text-align: right;
+            width: 100%;
+
+            ul li {
+                display: inline-block;
+                margin: 0;
+            }
+        }
+    }
+}
+
+body.has-sticky-header {
+    .page {
+        padding-top: 200px;
+    }
+}
+
+.top-search,
+.top-account {
+    height: 120px;
+    float: left;
+    width: 50%;
+}
+
+.top-account {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    padding: 20px 0;
+    text-align: center;
+    width: 325px;
+
+    ul {
+        li {
+            &:not(.tracking) {
+                display: inline-block;
+            }
+
+            &.sep {
+                color: #ccc;
+                font-weight: 300;
+            }
+
+            &.tracking {
+                margin-bottom: 10px;
+                a:before {
+                    background-image: url('../images/tracking.png');
+                    background-size: 20px;
+                    width: 20px;
+                }
+            }
+
+            &.login,
+            &.logout {
+                a:before {
+                    background-image: url('../images/login.png');
+                }
+            }
+
+            &.wishlist {
+                a:before {
+                    background-image: url('../images/wishlist.png');
+                }
+            }
+
+            &.cart {
+                a:before {
+                    background-image: url('../images/cart2.png')
+                }
+            }
+
+            a {
+                display: block;
+                color: #000;
+                font-weight: 600;
+                padding: 0 5px;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    background-size: 16px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    vertical-align: middle;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 2px;
+                    position: relative;
+                    top: -3px;   
+                }
+            }
+        }
+    }
+}
+
+/* ============================================ *
+ * Top bar
+ * ============================================ */
+
+.top-bar {
+    background-color: $c-action;
+    padding: $gap;
+    text-transform: uppercase;
+
+    ul {
+        li  {
+            display: inline-block;
+            margin-bottom: 5px;
+            width: 33%;
+
+            &:nth-child(2) {
+                text-align: center;
+            }
+            
+            &:last-child {
+                text-align: right;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-size: $f-size-xl;
+                font-weight: bold;
+                text-transform: none;
+                span {
+                    display: inlin-block;
+                    border-bottom: 1px solid rgba(white, .8);
+                    padding: $gap 0 2px;
+                }
+            }
+        }
+    }
+}
+
+/* ============================================ *
+ * Logo
+ * ============================================ */
+
+.logo {
+    float: left;
+    line-height: 100%;
+    margin-right: 2%;
+    padding: ($gap + 5) $gap*2 ($gap + 5) 0;
+    transition: height .4s ease, margin .4s ease, opacity .2s .2s ease;
+    width: 38%;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    a,
+    img {
+        display: block;
+    }
+
+    img {
+        max-height: 90px;
+        max-width: 100%;
+        height: auto;
+        transition: height 0.4s ease;
+    }
+}
+
+/* ============================================ *
+ * Search
+ * ============================================ */
+
+.top-search {
+    background-color: #eeeeee;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    transition: height .4s ease;
+
+    span {
+        color: #000;
+        display: block;
+        font-weight: bold;
+    }
+}
+
+#search_mini_form {
+    .input-box {
+        border-radius: 2px;
+        position: relative;
+        padding-top: 0;
+        overflow: hidden;
+    }
+
+    label {
+        display: none;
+    }
+
+    .search-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 40px;
+        border: 0;
+        background-color: $c-green;
+        background-image: url('../images/search.png');
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        vertical-align: middle;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+
+        &:before {
+            content: "GO";
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+            margin-left: -15px;
+            font-size: $f-size-xl;
+            line-height: 30px;
+        }
+
+        > span {
+            display: none;
+        }
+
+
+        &:hover:before {
+            opacity: 0.8;
+        }
+
+        &:active:before {
+            margin-top: -15px + 2px;
+            margin-left: -15px + 2px;
+        }
+    }
+}
+
+#search {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-family: $f-stack-special;
+    padding-right: 40px;
+    height: 40px;
+    width: 100%;
+}
+
+/* ============================================ *
+ * Cart
+ * ============================================ */
+
+.top-cart {
+    display: none;
+    height: 120px;
+    float: left;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+
+    img {
+        display: block;
+        max-width: 32px;
+        margin: 0 auto 10px;
+    }
+
+    span {
+        color: $c-blue;
+        font-weight: 600;
+        i {
+            font-style: normal;
+        }
+    }
+}
+
+/* ============================================ *
+ * General Navigation Styles
+ * ============================================ */
+
+$nav-primary-height: 48px;
+
+#primary-menu {
+    background-color: #e3f0f8;
+    border-bottom: 3px solid $c-action;
+    border-top: 3px solid $c-action;
+}
+
+.nav-primary {
+    @include clearfix-extended();
+    background-color: #e3f0f8;
+    margin: 0;
+
+    a {
+        display: block;
+        color: $c-black;
+        font-family: $f-stack-special;
+        line-height: 30px;
+        position: relative;
+        text-decoration: none;
+    }
+
+    li {
+        position: relative;
+    }
+
+    li.level1 a {
+        border-bottom: 1px solid $c-module-border;
+        text-align: left;
+    }
+    
+    // On sale menu item
+    li.level0.nav-6 > a {
+        color: #ff0000;
+    }
+}
+
+// Show sub-menus when JS adds the appropriate classes
+.nav-primary .menu-active > ul.level0,
+.nav-primary li.level0 li.sub-menu-active > ul {
+    display: block;
+}
+
+.nav-primary li.level0 {
+    border-left: 1px solid #cfdbe3;
+
+    &:last-child {
+        border-right: 1px solid #cfdbe3;
+    }
+
+    > a {
+        color: $c-action;
+        font-size: $f-size-xxl;
+        font-weight: 700;
+        line-height: $nav-primary-height;
+        text-transform: uppercase;
+    }
+
+    &.active > a {
+        background-color: $c-action;
+        color: #fff;
+    }
+
+    &:not(.active) > a:hover {
+        background-color: darken($c-light-blue, 8%);
+    }
+}
+
+@include bp(max-width, $bp-medium) {
+    
+    // ---------------------------------------------
+    // Link
+    .nav-primary a.level0 {
+        border-bottom: 1px solid $c-module-border;
+        color: $c-text;
+        line-height: 30px;
+        padding: 0 15px 0 25px;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .nav-primary li.level0:last-child a.level0 {
+        border-bottom: 0;
+    }
+    
+    .no-touch .nav-primary a:hover {
+        background-color: $c-module-background;
+        text-decoration: none;
+    }
+
+}
+
+/* ============================================ *
+ * Large Viewports - Dropdown Menu
+ * ============================================ */
+
+@include bp(min-width, $max-content-width) {
+    .nav-primary {
+
+        a.level0 {
+            padding: 0 25px;
+        }
+
+        li.level0,
+        a.level0 {
+            display: block;
+            text-align: center;
+        }
+
+        li.level0 {
+            display: block;
+            float: left;
+            width: 14.28%;
+        }
+
+        li:last-child > a {
+            border-bottom: none;
+        }
+
+        a:hover,
+        li:hover > a {
+            color: $c-action;
+        }
+
+        .menu-active {
+            z-index: 200;
+        }
+
+        /* Default styles for 1+ drop-down menus */
+        li.level0 ul {
+            @include menu;
+            position: absolute;
+            left: 0;
+            top: $nav-primary-height; /* Height of ".nav-primary a.level0" */
+            z-index: 10;
+            width: 250px;
+            padding-left: $box-spacing;
+            padding-right: $box-spacing;
+            display: none; /* Hide until displayed. */
+            box-shadow: 0 4px 4px rgba($c-black, 0.3);
+            border-top: 3px solid $c-blue;
+            border-radius: 0 0 10px 10px
+        }
+
+        li.level0 ul.cat-womens {
+            text-align: left;
+            width: 570px;
+
+            > li {
+                display: inline-block;
+                width: 50%;
+            }    
+        }
+
+        /* Level 2+ */
+        li.level1 ul {
+            left: 60px;
+            top: 15px;
+        }
+
+        /* Class for js to add briefly to evaluate element positioning. */
+        li.level0 ul.level0.position-test {
+            display: block;
+        }
+
+        /* Correct menus that will hang off the page (class added by js) */
+        li.level0 ul.level0.spill {
+            right: 0;
+            left: auto;
+
+            // Sub-menu drop down to the left
+            li.level1 ul {
+                left: auto;
+                right: 50px;
+                top: 20px;
+            }
+        }
+
+        /* Level 1+ */
+        li.level0 li.parent > a {
+            position: relative;
+
+            &:after {
+                @include triangle(right, 4px, #ccc);
+                right: 5px;
+                top: 50%;
+                margin-top: -3px;
+            }
+        }
+    }
+}
+
+.nav-primary li.menu-active {
+    > ul {
+        display: block;
+    }
+}
+
+/* ============================================ *
+ * Header 1170px
+ * ============================================ */
+
+@include bp(max-width, $max-content-width) {
+    
+    .top-bar,
+    .top-account {
+        display: none;
+    }
+
+    #header {
+        border-bottom: 2px solid $c-blue;
+        padding-top: 58px;
+        .container {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    body.primary-menu-open {
+        position: relative;
+        &:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background: rgba(black, 0.8);
+            transition: all 0.4s ease;
+            z-index: 150;
+        }
+    }
+
+    // Mobile Links
+
+    .top-links {
+        background-color: $c-blue;
+        display: block;
+        position: relative;
+        height: 58px;
+        z-index: 250;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .mobile-links {
+
+        &.left {
+            float: left;
+        }
+
+        &.right {
+            float: right;
+        }
+        
+        &.left,
+        &.right {
+            @include clearfix-extended();
+        }
+
+        .cart,
+        .search {
+            display: none;
+        }
+
+        li {
+            display: block;
+            float: left;
+            margin-left: 0;
+            height: 58px;
+            padding: 10px 8px;
+            line-height: 38px;
+
+            &:not(.primary-menu-trigger) {
+                &:hover,
+                &.active {
+                    background-color: rgba(black, 0.1);
+                }
+            }
+
+            a {
+                display: block;
+                color: $c-white;
+            }
+
+            &.primary-menu-trigger {
+                line-height: 1.4;
+                a {
+                    background: url("../images/mobile/arrow-up.png") no-repeat 8px center;
+                    background-size: 16px;
+                    border-radius: 4px;
+                    border: 2px solid #fff;
+                    display: inline-block;
+                    padding: 5px 15px 5px 35px;
+                }
+                
+                &.active {
+                    a {
+                        background: #fff url("../images/mobile/arrow-down.png") no-repeat 8px center;
+                        background-size: 16px;
+                        border-color: $c-blue;
+                        color: $c-blue;
+                        transition: all 0.4s ease;
+                    }
+                }
+            }
+
+            &.login,
+            &.logout {
+                position: relative;
+                padding-right: 12px;
+
+                &:after {
+                    content: "";
+                    height: 38px;
+                    width: 2px;
+                    background: rgba($c-white, 0.2);
+                    position: absolute;
+                    right: 0;
+                    top: 10px;
+                }
+            }
+
+            &.wishlist {
+                padding-left: 12px;
+            }
+        }
+
+        img {
+            display: inline;
+            vertical-align: sub;
+            max-width: 28px;
+        }
+    }
+
+    .logo {
+        padding-left: 15px;
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    .top-search {
+        width: 75%;
+    }
+
+    .top-cart {
+        display: block;
+        width: 25%;
+    }
+
+    // Navigation
+
+    #primary-menu {
+        background: #e3f0f8;
+        border: 0;
+        top: 0;
+        padding-top: 58px;
+        left: -260px;
+        position: fixed;
+        height: 100%;
+        z-index: 199;
+        width: 260px;
+        overflow: auto;
+        transition: all 0.4s ease;
+
+        .container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    body.primary-menu-open #primary-menu {
+        left: 0;
+        box-shadow: 0 20px 50px rgba(black,0.8);
+    }
+
+    .nav-primary {
+
+        a.level0,
+        a {
+            line-height: 35px;
+        }
+
+        li.level0 {
+            float: none;
+            border: 0;
+            border-bottom: 1px solid #4799d2;
+            width: 100%;
+            > a {
+                text-transform: none;
+                padding: 0 25px;
+            }
+        }
+
+        // Hide all sub-menus
+        li.level0 ul {
+            display: none;
+        }
+
+        // Indent sub-menus
+        li.level0 li {
+            padding: 0;
+        }
+
+        li.level1 a {
+            padding: 0 15px 0 25px;
+        }
+
+        li.menu-active > a,
+        li.sub-menu-active > a {
+            color: $c-action;
+        }
+    }
+}
+
+@include bp(max-width, $bp-medium) {
+    .top-search,
+    .top-cart {
+        display: none;
+    }
+
+    .top-search {
+        &.visible {
+            display: block;
+            position: fixed;
+            top: 58px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 250;
+            > span {
+                display: none;
+            }
+        }
+    }
+
+    .logo {
+        float: none;
+        width: 100%;
+    }
+
+    .mobile-links {
+        &.right {
+            a {
+                height: 32px;
+                width: 32px;
+                display: inline-block;
+            }
+        }
+        li {
+
+            &.tracking {
+                display: none;
+            }
+
+            &.login,
+            &.logout {
+                padding-right: 8px;
+                &:after {
+                    content: none;
+                }
+            }
+
+            &.wishlist {
+                padding-left: 8px;
+            }
+
+            &.search,
+            &.cart {
+                display: inline-block;
+            }
+        }
+
+        span {
+            display: none;
+        }
+
+        img {
+            max-width: 32px;
+        }
+    }
+}
+
+@include bp(max-width, $bp-small) {
+    .mobile-links.left {
+        padding-right: 0;
+    }
+}

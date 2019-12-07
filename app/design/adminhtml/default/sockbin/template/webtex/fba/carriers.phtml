@@ -1,0 +1,114 @@
+<?php
+/**
+ * Webtex
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled
+ * with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.webtexsoftware.com/LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@webtexsoftware.com and we will send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to http://www.webtexsoftware.com for more information,
+ * or contact us through this email: info@webtexsoftware.com.
+ *
+ * @category   Webtex
+ * @package    Webtex_Fba
+ * @copyright  Copyright (c) 2011 Webtex Solutions, LLC (http://www.webtexsoftware.com/)
+ * @license    http://www.webtexsoftware.com/LICENSE.txt End-User License Agreement
+ */
+?>
+<?php /** @see Webtex_Fba_Block_Adminhtml_Carriers */ ?>
+<?php if (!$this->getAjax()): ?>
+<div class="content-header">
+    <div id="order-header">
+        <h3 class="icon-head head-sales-order">Work with Amazon shipping carriers</h3>
+    </div>
+    <p class="form-buttons">
+</div>
+
+<div id="sync_data_box" >
+<?php endif; ?>
+<?php $carriers = $this->getCarriersData() ?>
+<?php if (count($carriers)): ?>
+<div id="ajax-bloc" class="entry-edit" style="float: left;">
+    <div class="entry-edit-head">
+        <div style="float: right;"></div>
+        <h4 class="fieldset-legend ">Info:</h4>
+    </div>
+    <div class="fieldset">
+        <div class="store-scope">
+            <div class="tree-store-scope">
+    <div class="grid">
+        <form id="current_carriers">
+            <table cellspacing="0" class="data" id="tracking_numbers_table">
+                <thead>
+                <tr class="headings">
+                    <th><?php echo Mage::helper('fba')->__('Carrier Code') ?></th>
+                    <th><?php echo Mage::helper('fba')->__('Carrier Title') ?></th>
+                    <th><?php echo Mage::helper('fba')->__('Carrier Analog') ?></th>
+                </tr>
+                </thead>
+                <tbody id="track_row_container">
+
+                    <?php foreach ($carriers as $iterate_active): ?>
+                    <tr id="track_row_template" class="template">
+                    <td><input class="input-text number-title" type="text" readonly="readonly"
+                               name="tracking[<?php echo $iterate_active->getCarrierCode()?>][carrier_code]"
+                               value="<?php echo $iterate_active->getCarrierCode()?>"/></td>
+                    <td><input class="input-text required-entry" type="text" readonly="readonly"
+                               name="tracking[<?php echo $iterate_active->getCarrierCode()?>][carrier_name]"
+                               value="<?php echo $iterate_active->getCarrierName()?>"/></td>
+                    <td>
+                        <select name="tracking[<?php echo $iterate_active->getCarrierCode()?>][carrier_analog]"
+                                class="select carrier" style="width:110px;">
+                            <?php foreach ($this->getCarriers() as $_code => $_name): ?>
+                            <option
+                                    value="<?php echo $_code ?>"<?php if ($iterate_active->getCarrierAnalog() == $_code): ?>selected="selected"<?php endif;?>><?php echo $this->escapeHtml($_name) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    </tr>
+                    <?php endforeach;?>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+                </div>
+            </div>
+            <div>
+                <button id="sync_btn" class="scalable " style="margin-top:5px;" onclick="save();" type="button"
+                        title="Save carriers">
+                    Save Carriers
+                </button>
+            </div>
+        </div>
+   <?php else:?>
+        <?php echo Mage::helper('fba')->__('no carriers available yet') ?>
+    <?php endif; ?>
+
+<?php if (!$this->getAjax()): ?>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function switchWebsite(select){
+        new Ajax.Updater('sync_data_box', '<?php echo $this->getAjaxUrl()?>', {
+            parameters:{ active_id:select.getValue() }
+        });
+    }
+    function save(){
+        new Ajax.Updater('sync_data_box', '<?php echo $this->getSyncWebsiteUrl()?>', {
+            parameters:$('current_carriers').serialize(true)
+        });
+    }
+</script>
+<?php endif; ?>

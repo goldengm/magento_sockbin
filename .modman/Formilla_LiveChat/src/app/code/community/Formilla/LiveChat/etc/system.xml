@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <livechat_config module="livechat" translate="label">
+            <label>Formilla</label>
+            <sort_order>1</sort_order>
+        </livechat_config>    
+    </tabs>
+    <sections>
+        <livechat translate="label" module="livechat">
+            <label>Live Chat</label>
+            <tab>livechat_config</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <chat translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <id translate="label">
+                            <label>Chat ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+				<span style="font-size:12px;"><a href="https://www.formilla.com/sign-up.aspx?u=ma" target="_blank"> SIGN UP</a>
+				to receive your Chat ID by email. <br /> Enter your Chat ID here and save to activate the chat widget on your Magento store.
+				</span> <br /> <br />
+				<span style="font-size:12px;">Refer to the <a href="http://www.formilla.com/live-chat-help.aspx" target="_blank">Formilla Live Chat Help Center</a>
+				or <a href="http://www.formilla.com/contact-us.aspx" target="_blank">contact us</a> if you have any questions.
+				</span>
+                            ]]>                            
+                            </comment>                            
+                        </id>
+                    </fields>                    
+                </chat>
+            </groups>
+        </livechat>
+    </sections>
+</config>

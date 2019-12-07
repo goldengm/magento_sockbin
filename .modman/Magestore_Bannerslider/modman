@@ -1,0 +1,16 @@
+/src/app/code/community/Magestore/Bannerslider /app/code/community/Magestore/Bannerslider
+/src/app/code/local/Magestore/Magenotification /app/code/local/Magestore/Magenotification
+/src/app/design/adminhtml/default/sockbin/layout/bannerslider.xml /app/design/adminhtml/default/sockbin/layout/bannerslider.xml 
+/src/app/design/adminhtml/default/sockbin/layout/magenotification.xml /app/design/adminhtml/default/sockbin/layout/magenotification.xml
+/src/app/design/adminhtml/default/sockbin/template/bannerslider /app/design/adminhtml/default/sockbin/template/bannerslider
+/src/app/design/adminhtml/default/sockbin/template/magenotification /app/design/adminhtml/default/sockbin/template/magenotification
+/src/app/design/frontend/snowdog/sockbin/layout/bannerslider.xml /app/design/frontend/snowdog/sockbin/layout/bannerslider.xml 
+/src/app/design/frontend/snowdog/sockbin/template/bannerslider /app/design/frontend/snowdog/sockbin/template/bannerslider
+/src/app/etc/modules/Magestore_Bannerslider.xml /app/etc/modules/Magestore_Bannerslider.xml
+/src/app/etc/modules/Magestore_Magenotification.xml /app/etc/modules/Magestore_Magenotification.xml
+/src/app/locale/en_US/Magestore_Bannerslider.csv /app/locale/en_US/Magestore_Bannerslider.csv
+/src/skin/adminhtml/default/default/css/magestore /skin/adminhtml/default/default/css/magestore
+/src/skin/adminhtml/default/default/css/tinybox /skin/adminhtml/default/default/css/tinybox
+/src/skin/frontend/base/default/css/magestore /skin/frontend/base/default/css/magestore
+/src/js/magestore /js/magestore
+/src/js/tinybox /js/tinybox

@@ -1,0 +1,168 @@
+<layout version="0.1.0">
+    <default>
+        
+        <!-- Remove Magento's Default Sidebar Blocks -->
+        <remove name="cart_sidebar"/>                   <!-- Cart Sidebar -->
+        <remove name="catalog.product.related"/>        <!-- Related products sidebar -->
+        <remove name="wishlist_sidebar"/>               <!-- Wishlist Sidebar -->
+        <remove name="catalog.compare.sidebar"/>        <!-- Compare Items Sidebar -->
+        <remove name="right.permanent.callout"/>        <!-- Right Callout Sample Data -->
+        <remove name="left.permanent.callout"/>         <!-- Left Callout Sample Data -->
+        <remove name="right.reports.product.viewed"/>   <!-- Viewed Products -->
+        <remove name="right.reports.product.compared"/> <!-- Compared Products -->
+        <remove name="catalog.leftnav"/>                <!-- Layered Navigation -->
+        <remove name="left.newsletter"/>                <!-- Sidebar Newsletter -->
+        <remove name="right.poll"/>                     <!-- Poll -->
+        <remove name="tags_popular"/>                   <!-- Popular Tags -->
+        <remove name="paypal.partner.right.logo"/>      <!-- Paypal logo Sample Data -->
+        <remove name="catalogsearch.leftnav"/>          <!-- Layered navigation on search result page -->
+        <remove name="sale.reorder.sidebar"/>           <!-- Reorder Sidebar When User Logged, in Dashboard -->
+        <remove name="product_tag_list" />
+
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/lib/jquery.selectric.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/lib/ExpandSelect.js</name>
+            </action>
+        </reference>
+
+        <block type="core/messages" name="global_messages" as="global_messages"/>
+        <block type="core/messages" name="messages" as="messages"/>
+
+        <reference name="root">
+            <block type="core/template" name="sockbin_contact_form" template="contact/contact_form.phtml" />
+        </reference>
+
+        <reference name="footer">
+
+            <!-- Remove Links and Newsletter Blocks -->
+            <remove name="footer.newsletter" />
+            <remove name="footer_links"/>
+            <remove name="footer_links2"/>
+            <remove name="cms_footer_links" />
+            
+            <!-- Add SockBin Fooer Blocks -->
+            <block type="cms/block" name="sockbin_footer_contact">
+                <action method="setBlockId">
+                    <block_id>sockbin_footer_contact</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="sockbin_footer_pages">
+                <action method="setBlockId">
+                    <block_id>sockbin_footer_pages</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="sockbin_footer_secure">
+                <action method="setBlockId">
+                    <block_id>sockbin_footer_secure</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="sockbin_norton_script">
+                <action method="setBlockId">
+                    <block_id>norton_script</block_id>
+                </action>
+            </block>
+
+            <block type="core/template" name="google.adword" template="page/html/google_adword.phtml"/>
+
+        </reference>
+
+    </default>
+    
+    <catalog_category_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column-category.phtml</template>
+            </action>
+            <block type="mana_filters/view" name="catalog.filters.top" template="catalog/layer/view.phtml"/>
+        </reference>
+    </catalog_category_view>
+
+    <catalog_category_layered>
+        <remove name="mana.catalog.leftnav" />
+    </catalog_category_layered>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/category.css</name>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column-category.phtml</template>
+            </action>
+            <block type="mana_filters/view" name="catalog.filters.top" template="catalog/layer/view.phtml"/>
+        </reference>
+    </catalogsearch_result_index>
+
+    <catalog_product_view>
+        <!-- Remove Tabs -->
+        <remove name="product.attributes"/>
+        <remove name="product.reviews"/>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column-product.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/lib/jquery.magnific-popup.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/lib/owl.carousel.min.js</name>
+            </action>
+        </reference>
+    </catalog_product_view>
+
+    <checkout_onepage_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column-category.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+
+    <checkout_cart_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/lib/tooltipster.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/lib/owl.carousel.min.js</name>
+            </action>
+        </reference>
+    </checkout_cart_index>
+
+    <firecheckout_index_index>
+        <reference name="head">
+            <action method="addCss">
+                <file>css/checkout.css</file>
+            </action>
+        </reference>
+    </firecheckout_index_index>
+
+    <contacts_index_index>
+        <reference name="head">
+            <block type="core/text" name="google_recaptcha">
+                <action method="setText"><text><![CDATA[<script src="https://www.google.com/recaptcha/api.js"></script>]]></text></action>
+            </block>
+        </reference>
+        <reference name="contactForm">
+            <action method="setTemplate">
+                <template>contact/contact_form.phtml</template>
+            </action>
+        </reference>
+    </contacts_index_index>
+</layout>

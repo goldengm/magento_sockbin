@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_Pobox>
+            <version>0.1.0</version>
+        </Snowdog_Pobox>
+    </modules>
+    <frontend>
+        <routers>
+            <snowpobox>
+                <use>standard</use>
+                <args>
+                    <module>Snowdog_Pobox</module>
+                    <frontName>snowpobox</frontName>
+                </args>
+            </snowpobox>
+            <firecheckout>
+                <args>
+                    <modules>
+                        <Snowdog_Pobox before="TM_FireCheckout">Snowdog_Pobox_Firecheckout</Snowdog_Pobox>
+                    </modules>
+                </args>
+            </firecheckout>
+        </routers>
+        <layout>
+            <updates>
+                <snowpobox>
+                    <file>snowpobox.xml</file>
+                </snowpobox>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <helpers>
+            <snowpobox>
+                <class>Snowdog_Pobox_Helper</class>
+            </snowpobox>
+        </helpers>
+        <blocks>
+            <snowpobox>
+                <class>Snowdog_Pobox_Block</class>
+            </snowpobox>
+        </blocks>
+    </global>
+</config> 

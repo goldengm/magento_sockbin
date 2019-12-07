@@ -1,0 +1,370 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php
+$tierPrices = $_product->getTierPrice();
+if (isset($tierPrices[0])) {
+    $minTierQty = (int)$tierPrices[0]['price_qty'];
+}
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+    <?php if ($minTierQty): ?>
+        var qtyIncrement = <?php echo $minTierQty; ?>;
+    <?php endif; ?>
+</script>
+
+<div class="product-view-wrap">
+    <div class="container clearfix">
+        <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+        <div class="product-view">
+            <div class="product-essential">
+                <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                    <?php echo $this->getBlockHtml('formkey') ?>
+                    
+                    <div class="no-display">
+                        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                        <input type="hidden" name="related_product" id="related-products-field" value="" />
+                    </div>
+
+                    <div class="product-img-box">
+                        <div class="product-sku hidden">
+                            <span><?php echo $this->__('SKU'); ?>: <?php echo $_helper->productAttribute($_product, $_product->getSku(), 'sku') ?></span>
+                            <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product); ?>"><?php echo $this->__('Add to Wishlist'); ?></a>
+                        </div>
+                        <div class="product-name">
+                            <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                        </div>
+                        <?php echo $this->getChildHtml('media') ?>
+                    </div>
+
+                    <div class="product-shop">
+
+                        <div class="product-sku">
+                            <span><?php echo $this->__('SKU'); ?>: <?php echo $_helper->productAttribute($_product, $_product->getSku(), 'sku') ?></span>
+                            <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product); ?>"><?php echo $this->__('Add to Wishlist'); ?></a>
+                        </div>
+                        
+                        <div class="product-name">
+                            <span class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+                        </div>
+
+                        <?php if ($_product->getShortDescription()):?>
+                            <div class="short-description">
+                                <div class="std">
+                                    <?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?>
+                                </div>
+                            </div>
+                        <?php endif;?>
+
+                        
+                        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                            <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                        <?php endif;?>
+
+                        <div class="price-info">
+                            <?php echo $this->getPriceHtml($_product); ?>
+                            <?php echo $this->getChildHtml('bundle_prices') ?>
+                            <?php if ( ! $this->hasOptions()): ?>
+                                <?php echo $this->getTierPriceHtml() ?>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="extra-info">
+                            <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+                            <?php echo $this->getChildHtml('product_type_availability'); ?>
+                        </div>
+
+                        <?php echo $this->getChildHtml('alert_urls') ?>
+
+                        <?php echo $this->getChildHtml('other');?>
+
+                        <div class="add-to-cart-wrapper">
+                            <?php echo $this->getChildHtml('product_type_data') ?>
+                            <?php echo $this->getChildHtml('extrahint') ?>
+
+                            <?php if (!$this->hasOptions()):?>
+                                <div class="add-to-box">
+                                    <?php if($_product->isSaleable()): ?>
+                                        <?php echo $this->getChildHtml('addtocart') ?>
+                                    <?php endif; ?>
+                                </div>
+                                <?php echo $this->getChildHtml('extra_buttons') ?>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="product-collateral toggle-content tabs">
+                            <h3><?php echo $this->__('Description'); ?></h3>
+                            <?php if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')):?>
+                                <dl id="collateral-tabs" class="collateral-tabs">
+                                    <?php foreach ($detailedInfoGroup as $alias => $html):?>
+                                        <dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
+                                        <dd class="tab-container">
+                                            <div class="tab-content"><?php echo $html ?></div>
+                                        </dd>
+                                    <?php endforeach;?>
+                                </dl>
+                            <?php endif; ?>
+                        </div>
+
+                    </div>
+
+                    <div class="clearer"></div>
+                    
+                    <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                    <?php endif;?>
+                
+                </form>
+
+                <script type="text/javascript">
+                //<![CDATA[
+                    var productAddToCartForm = new VarienForm('product_addtocart_form');
+                    productAddToCartForm.submit = function(button, url) {
+                        if (this.validator.validate()) {
+                            var form = this.form;
+                            var oldUrl = form.action;
+
+                            if (url) {
+                               form.action = url;
+                            }
+                            var e = null;
+                            try {
+                                this.form.submit();
+                            } catch (e) {
+                            }
+                            this.form.action = oldUrl;
+                            if (e) {
+                                throw e;
+                            }
+
+                            if (button && button != 'undefined') {
+                                button.disabled = true;
+                            }
+                        }
+                    }.bind(productAddToCartForm);
+
+                    productAddToCartForm.submitLight = function(button, url){
+                        if(this.validator) {
+                            var nv = Validation.methods;
+                            delete Validation.methods['required-entry'];
+                            delete Validation.methods['validate-one-required'];
+                            delete Validation.methods['validate-one-required-by-name'];
+                            // Remove custom datetime validators
+                            for (var methodName in Validation.methods) {
+                                if (methodName.match(/^validate-datetime-.*/i)) {
+                                    delete Validation.methods[methodName];
+                                }
+                            }
+
+                            if (this.validator.validate()) {
+                                if (url) {
+                                    this.form.action = url;
+                                }
+                                this.form.submit();
+                            }
+                            Object.extend(Validation.methods, nv);
+                        }
+                    }.bind(productAddToCartForm);
+                //]]>
+                </script>
+                <?php if ($minTierQty): ?>
+                    <script>
+                        jQuery(document).ready(function () {
+                            jQuery('#qty').bind("change", updateQtyPrice);
+                            jQuery('.tier-0 input:radio[name=tier_price_qty]').trigger(jQuery.Event("click"));
+                        });
+
+                        var allQty = [];
+
+                        jQuery( ".tier_price_qty" ).each(function( index ) {
+                            allQty.push(jQuery( this ).val());
+                        });
+
+                        var checkNextQty = function(qtyToCheck) {
+                            var qtyToRet = false;
+
+                            jQuery.each(allQty, function(index, value){
+                                var divResult = qtyToCheck/value;
+                                if((divResult > 0 && divResult < 1 && qtyToRet == false) || (divResult == 1)){
+                                    qtyToRet = value;
+                                }
+                            });
+
+                            return qtyToRet;
+                        };
+
+                        var updateQtyPrice = function() {
+                            var updatedQty = 0;
+                            var boxQty = parseInt(jQuery('#qty').val());
+                            var minQty = parseInt(jQuery('.tier-0 input:radio[name=tier_price_qty]').val());
+                            var maxQty = parseInt(jQuery('.tiered-pricing tbody tr:last-child td input:radio[name=tier_price_qty]').val());
+
+                            if (boxQty > 0) {
+                                if (boxQty <= minQty){
+                                    updatedQty = minQty;
+                                }else{
+                                    if (boxQty > maxQty) {
+                                        var divResult = boxQty % maxQty;
+
+                                        if (divResult == 0) {
+                                            updatedQty = boxQty;
+                                        } else {
+                                            var incrDiv = boxQty/qtyIncrement;
+                                            updatedQty = Math.ceil(incrDiv) * qtyIncrement;
+                                            setInc = true;
+                                        }
+                                    } else {
+                                        updatedQty = checkNextQty(boxQty);
+                                    }
+                                }
+
+                                jQuery('#qty').val(updatedQty);
+
+                                var totalProductPrice = 0, tierPriceEach = 0;
+
+                                jQuery( ".tier_price_qty" ).each(function( index ) {
+                                    var tierQty = jQuery( this ).val();
+                                    if (updatedQty == tierQty) {
+                                        var priceWithoutCurrency = jQuery( this ).parent().parent().find('span.price').html().replace('$', '');
+                                        var priceWithoutComma = priceWithoutCurrency.replace(',', '');
+                                        tierPriceEach = parseFloat(priceWithoutComma);
+                                        totalProductPrice = (tierPriceEach * updatedQty).toFixed(2);
+                                        jQuery('#tier-price-each-label').html('$' + String(tierPriceEach));
+                                        jQuery( ".tier_price_qty" ).each(function( index ) {
+                                            jQuery( this ).parent().removeClass('selected-tier-price');
+                                            jQuery( this ).closest('tr').removeClass('current-row');
+                                            jQuery( this ).attr("checked", false);
+                                        });
+                                        jQuery( this ).parent().addClass('selected-tier-price');
+                                        jQuery( this ).closest('tr').addClass('current-row');
+                                        jQuery( this )[0].checked = true;
+                                        return false;
+                                    } else {
+                                        if(updatedQty > tierQty) {
+                                            var priceWithoutCurrency = jQuery( this ).parent().parent().find('span.price').html().replace('$', '');
+                                            var priceWithoutComma = priceWithoutCurrency.replace(',', '');
+                                            tierPriceEach = parseFloat(priceWithoutComma);
+                                            totalProductPrice = (tierPriceEach * updatedQty).toFixed(2);
+                                            jQuery('#tier-price-each-label').html('$' + String(tierPriceEach));
+                                            jQuery( ".tier_price_qty" ).each(function( index ) {
+                                                jQuery( this ).parent().removeClass('selected-tier-price');
+                                                jQuery( this ).closest('tr').removeClass('current-row');
+                                                jQuery( this ).attr("checked", false);
+                                            });
+                                            jQuery( this ).parent().addClass('selected-tier-price');
+                                            jQuery( this ).closest('tr').addClass('current-row');
+                                            jQuery( this )[0].checked = true;
+                                        }
+                                    }
+                                });
+                            }
+
+                            jQuery('#product-price-<?php echo $_product->getId() ?> .price').html('$' + String(totalProductPrice));
+                            jQuery('.pair-price .price').html('$' + String(tierPriceEach));
+                        };
+                    </script>
+                <?php endif; ?>
+            </div>
+
+            <?php echo $this->getChildHtml('product_additional_data') ?>
+
+        </div>
+    </div>
+</div>
+
+<?php
+$related_products = $_product->getRelatedProductIds();
+if(count($related_products)):
+?>
+<div class="product-related-wrap">
+    <div class="container clearfix">
+        <div class="box-related">
+            <?php
+                $this->setColumnCount(4);
+                $_columnCount = $this->getColumnCount(); ?>
+                
+                <h2>
+                    <?php echo $this->__('Customers who bought these') ?>
+                    <span><?php echo $this->__('Also Bought') ?></span>
+                </h2>
+                <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col" id="block-related">
+
+                    <?php foreach( $related_products as $related ) :
+                        $_related = Mage::getModel('catalog/product')->load( $related ); ?>
+                        
+                        <li class="carousel-cell item">
+                            <h2 class="product-name"><a href="<?php echo $_related->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_related->getName()) ?>"><?php echo $this->escapeHtml($_related->getName()) ?></a></h2>
+                            <a href="<?php echo $_related->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_related->getName()) ?>" class="product-image">
+                                <img src="<?php echo $this->helper('catalog/image')->init($_related, 'small_image')->resize(280) ?>" alt="<?php echo $this->escapeHtml($_related->getName()) ?>" />
+                            </a>
+                            <div class="product-quick-view">
+                                <button type="button" class="button button--quickview"><span><span><?php echo $this->__('Quick View'); ?></span></span></button>
+                            </div>
+                            <div class="product-info">
+                                <?php echo $this->getPriceHtml($_related, true) ?>
+                                <div class="actions">
+                                    <?php if(!$_related->canConfigure() && $_related->isSaleable()): ?>
+                                        
+                                        <form action="<?php echo $this->getAddToCartUrl($_related) ?>" method="post" id="product_addtocart_form_<?php echo $_related->getId()?>"<?php if($_related->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                                            <?php if(!$_related->isGrouped()): ?>
+                                                <div class="qty">
+                                                    <label for="qty">#:</label>
+                                                    <button type="button" class="qtyminus" data-field="qty-<?php echo $_related->getId(); ?>">-</button>
+                                                    <input type="text" name="qty" id="qty-<?php echo $_related->getId(); ?>" maxlength="12" value="<?php echo ($this->getMinimalQty($_related)?$this->getMinimalQty($_related):1) ?>" />
+                                                    <button type="button" class="qtyplus" data-field="qty-<?php echo $_related->getId(); ?>">+</button>
+                                                </div>
+                                            <?php endif; ?>
+                                            <button type="button" class="button btn-cart button--green" onclick="this.form.submit()"><span><span><span><?php echo $this->__('Add to Cart') ?></span></span></span></button>
+                                            <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart button--green" onclick="setLocation('<?php echo $this->getAddToCartUrl($_related) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                                        </form>
+
+                                    <?php elseif($_related->getStockItem() && $_related->getStockItem()->getIsInStock()): ?>
+                                        <a title="<?php echo $this->quoteEscape($this->__('View Details')) ?>" class="button" href="<?php echo $_related->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a>
+                                        
+                                    <?php else: ?>
+                                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php echo $this->getChildHtml('upsell_products') ?>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webtex
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled
+ * with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.webtexsoftware.com/LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@webtexsoftware.com and we will send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to http://www.webtexsoftware.com for more information,
+ * or contact us through this email: info@webtexsoftware.com.
+ *
+ * @category   Webtex
+ * @package    Webtex_Fba
+ * @copyright  Copyright (c) 2011 Webtex Solutions, LLC (http://www.webtexsoftware.com/)
+ * @license    http://www.webtexsoftware.com/LICENSE.txt End-User License Agreement
+ */
+-->
+<config>
+    <!--<menu>-->
+        <!--<fba_tab translate="title">-->
+            <!--<title>Fulfillment by Amazon</title>-->
+            <!--<sort_order>100</sort_order>-->
+            <!--<children>-->
+                <!--<amazon_queue translate="title">-->
+                    <!--<title>Amazon Queue</title>-->
+                    <!--<sort_order>10</sort_order>-->
+                    <!--<action>fba/adminhtml_index/amazonQueue</action>-->
+                <!--</amazon_queue>-->
+                <!--<amazon_log translate="title">-->
+                    <!--<title>Amazon Access Log</title>-->
+                    <!--<sort_order>20</sort_order>-->
+                    <!--<action>fba/adminhtml_index/amazonLog</action>-->
+                <!--</amazon_log>-->
+                <!--<carriers_analog translate="title">-->
+                    <!--<title>Amazon Carriers Analog</title>-->
+                    <!--<sort_order>30</sort_order>-->
+                    <!--<action>fba/adminhtml_index/carriers</action>-->
+                <!--</carriers_analog>-->
+                <!--<marketplace translate="title">-->
+                    <!--<title>Marketplaces Settings</title>-->
+                    <!--<sort_order>40</sort_order>-->
+                    <!--<action>fba/adminhtml_marketplace/index</action>-->
+                <!--</marketplace>-->
+                <!--<module_settings translate="title">-->
+                    <!--<title>Common Settings</title>-->
+                    <!--<sort_order>50</sort_order>-->
+                    <!--<action>fba/adminhtml_index/modSettings</action>-->
+                <!--</module_settings>-->
+            <!--</children>-->
+        <!--</fba_tab>-->
+    <!--</menu>-->
+    <!--<acl>-->
+        <!--<resources>-->
+            <!--<all>-->
+                <!--<title>Allow Everything</title>-->
+            <!--</all>-->
+            <!--<admin>-->
+                <!--<children>-->
+                    <!--<fba_tab translate="title">-->
+                        <!--<title>Fulfillment by Amazon</title>-->
+                        <!--<sort_order>100</sort_order>-->
+                        <!--<children>-->
+                            <!--<amazon_queue translate="title">-->
+                                <!--<title>Amazon Queue</title>-->
+                                <!--<sort_order>10</sort_order>-->
+                                <!--<action>fba/adminhtml_index/amazonQueue</action>-->
+                            <!--</amazon_queue>-->
+                            <!--<amazon_log translate="title">-->
+                                <!--<title>Amazon Access Log</title>-->
+                                <!--<sort_order>20</sort_order>-->
+                                <!--<action>fba/adminhtml_index/amazonLog</action>-->
+                            <!--</amazon_log>-->
+                            <!--<carriers_analog translate="title">-->
+                                <!--<title>Amazon Carriers Analog</title>-->
+                                <!--<sort_order>30</sort_order>-->
+                                <!--<action>fba/adminhtml_index/carriers</action>-->
+                            <!--</carriers_analog>-->
+                            <!--<marketplace translate="title">-->
+                                <!--<title>Marketplaces Settings</title>-->
+                                <!--<sort_order>40</sort_order>-->
+                                <!--<action>fba/adminhtml_marketplace/index</action>-->
+                            <!--</marketplace>-->
+                            <!--<module_settings translate="title">-->
+                                <!--<title>Common Settings</title>-->
+                                <!--<sort_order>50</sort_order>-->
+                                <!--<action>fba/adminhtml_index/modSettings</action>-->
+                            <!--</module_settings>-->
+                        <!--</children>-->
+                    <!--</fba_tab>-->
+                    <!--<system>-->
+                        <!--<children>-->
+                            <!--<config>-->
+                                <!--<children>-->
+                                    <!--<fba>-->
+                                        <!--<title>Webtex Fulfilling by Amazon</title>-->
+                                    <!--</fba>-->
+                                <!--</children>-->
+                            <!--</config>-->
+                        <!--</children>-->
+                    <!--</system>-->
+                <!--</children>-->
+            <!--</admin>-->
+        <!--</resources>-->
+    <!--</acl>-->
+</config>

@@ -1,0 +1,485 @@
+// =============================================
+// 404 Page
+// =============================================
+
+.cms-no-route {
+	.error-404-wrap {
+		max-width: 500px;
+		margin: 0 auto;
+		text-align: center;
+
+		.page-title {
+			h1 {
+				font-size: 110px;
+				font-weight: 900;
+				color: $c-black;
+				text-transform: capitalize;
+				span {
+					font-size: inherit;
+					font-weight: inherit;
+					display: inline;
+					color: $c-action;
+				}
+			}
+		}
+
+		a {
+			@include link($c-action, inherit);
+		}
+
+		p {
+			font-style: normal;
+			color: $c-text;
+			line-height: 1.4;
+		}
+
+		img {
+			display: inline;
+			max-width: 400px;
+		}
+		
+		h2 {
+			font-size: 30px;
+			font-weight: 400;
+			color: $c-black;
+			margin: 20px 0;
+		}
+
+		.search-button {
+			width: 100px !important;
+			background-position: 30px center !important;
+			&:before {
+				right: 20px !important;
+			}
+		}
+	}
+}
+
+.norton--cms-404 {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: auto!important;
+	height: auto;
+}
+
+// =============================================
+// About Us Page
+// =============================================
+
+// ---------------------------------------------
+// About
+
+.cms-about,
+.cms-about-us {
+	.main-container {
+		padding-bottom: 0;
+	}
+}
+
+.norton--about {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.section--about {
+	padding-top: 0;
+}
+
+.about-content {
+	h1 {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 125px;
+		font-weight: 400;
+	}
+
+	a {
+		@include link($c-blue, inherit);
+	}
+}
+
+.cycle-slideshow {
+	img {
+		height: auto;
+		margin: 0 auto;
+		right: 0;
+		width: 100%;
+	}
+}
+
+.cycle-pager {
+	display: block;
+	text-align: center;
+	width: 100%;
+
+	span {
+		border-radius: 50%;
+		font-size: 50px;
+		margin: 0 5px;
+		display: inline-block;
+		cursor: pointer;
+		color: #ddd;
+	}
+
+	span.cycle-pager-active {
+		color: $c-blue;
+	}
+
+	> * {
+		cursor: pointer;
+	}
+}
+
+// ---------------------------------------------
+// Socks Brands
+
+.section--more-socks {
+	h2 {
+		font-size: 55px;
+		margin-bottom: 0;
+		font-weight: 900;
+	}
+}
+
+.socks-brands {
+	margin: $trim 0;
+
+	img {
+		margin: 0 auto 20px;
+		max-width: 100%;
+	}
+
+	.col {
+		text-align: center;
+	}
+}
+
+.newsletter-wrap {
+	background: #f5f5f5;
+	border: 1px solid #dcddde;
+	padding: 20px;
+	text-align: center;
+
+	h3 {
+		color: $c-white;
+		font-weight: 900;
+		background: $c-blue;
+		padding: 15px;
+		font-size: 24px;
+		margin: -20px -20px 20px;
+	}
+
+	p {
+		margin: 0 0 15px;
+	}
+
+	input {
+		border: 1px solid #b5b7b8;
+		margin-bottom: 5px;
+	}
+
+	button {
+		font-size: 16px;
+	}
+
+	.newsletter-form p {
+		margin: 15px 0 0;
+	}
+
+	p.required,
+	.validation-advice {
+		margin: 5px 0;
+	}
+
+	.block-title,
+	.form-subscribe-header {
+		display: none;
+	}
+
+	.actions {
+		margin: 0;
+	}
+
+	input,
+	button {
+		border-radius: 4px;
+		height: 50px;
+		width: 100%;
+	}
+}
+
+// ---------------------------------------------
+// Contact
+
+.section--contact {
+	border-top: 1px solid #e5e6e6;
+
+	h2 {
+		font-size: 55px;
+		font-weight: 900;
+		margin-bottom: 0;
+		border: 0;
+	}
+}
+
+.contact-content {
+	margin: 70px auto 0;
+	max-width: 480px;
+
+	ul {
+		margin-bottom: 20px;
+		li {
+			float: left;
+			width: 50%;
+			img {
+				display: inline;
+				vertical-align: middle;
+				max-width: 32px;
+			}
+		}
+	}
+
+	h4 {
+		font-size: 16px;
+		margin: 0 0 10px;
+	}
+
+	img {
+		margin: 0 auto;
+	}
+
+	strong {
+		color: $c-black;
+	}
+}
+
+.contactform,
+.scaffold-form {
+	margin: 20px 0 ($trim * 2);
+	
+	label {
+		color: $c-black;
+		font-weight: 700;
+		font-size: 16px;
+		margin-bottom: 5px;
+	}
+
+	p.required {
+		float: none;
+		text-align: right;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"] {
+		height: 40px;
+		width: 100%;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"]
+	textarea {
+		border-radius: 4px;
+		border: 1px solid #d0d1d2;
+	}
+	
+	textarea {
+		min-height: 220px;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.form-group {
+		margin-bottom: 10px;
+	}
+
+	.input-box.checkbox {
+		margin: 10px 10px 0 0;
+		vertical-align: middle;
+		
+		label {
+			margin-bottom: 0;
+		}
+	}
+
+	.submit {
+		float: right;
+	}
+
+	.buttons-set {
+		border: 0;
+	}
+
+	.button {
+		padding: 12px 45px;
+	}
+}
+
+.scaffold-form {
+	padding-left: 0 !important;
+
+	li:not(.wide) {
+		max-width: 435px;
+	}
+	.buttons-set {
+		margin-left: 0;
+		text-align: left;
+		button.button {
+			float: none;
+			margin-left: 0;
+		}
+	}
+}
+
+@include bp(max-width, $max-content-width) {
+
+	.cms-about,
+	.cms-about-us {
+		.container {
+			width: 100%;
+		}
+	}
+
+	.norton--about,
+	.norton--cms-404 {
+		display: none;
+	}
+	
+	.section--about {
+		h1 {
+			text-align: center;
+		}
+		
+		.col {
+			float: none;
+			width: 100%;
+		}
+
+		.col--7 {
+			display: none;
+		}
+
+		.col--5 {
+			float: left;
+			width: 66%;
+			h1 {
+				display: none;
+			}
+		}
+
+		.col--3 {
+			float: left;
+			width: 33%;
+		}
+
+		.about-title {
+			display: block;
+			margin-bottom: $trim;
+			text-align: center;
+			.huge-title {
+				font-weight: 700;
+				color: $c-black;
+				font-size: 120px;
+				line-height: 1;
+				text-transform: uppercase;
+			}
+			p {
+				font-size: $f-size-xxl;
+				a {
+					font-weight: 700;
+				}
+			}
+		}
+
+		.about-slideshow-wrap {
+			display: block;
+			margin-bottom: $trim;
+		}
+	}
+
+	.section--more-socks {
+		border-top: 1px solid #e5e6e6;
+
+		.col--9 {
+			float: none;
+			padding: 0;
+			text-align: center;
+			width: 100%;
+		}
+
+		.col--3 {
+			//display: none;
+		}
+	}
+
+	.section--contact {
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+
+@include bp(max-width, $bp-medium) {
+	.section--about {
+		h1 {
+			text-align: center;
+		}
+		
+		.col {
+			float: none;
+			width: 100%;
+		}
+
+		.col--7 {
+			display: none;
+		}
+	
+		.col--3,
+		.col--5 {
+			float: none;
+			width: 100%;
+		}
+
+		.col--3 {
+			padding: 0;
+		}
+	}
+
+	.socks-brands {
+		.col {
+			margin-bottom: $trim;
+		}
+	}
+
+	.section--more-socks,
+	.section--contact {
+		h2 {
+			font-size: 28px;
+			text-align: center;
+		}
+	}
+}
+
+@include bp(max-width, $bp-small) {
+
+	.cms-no-route {
+		.error-404-wrap {
+			.page-title h1 {
+				font-size: 80px;		
+			}
+		}
+	}
+
+	.section--about {
+		.about-title {
+			.huge-title {
+				font-size: 80px;
+			}
+		}
+	}
+}

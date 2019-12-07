@@ -1,0 +1,5 @@
+/src/app/code/local/Biztech/Trackorder                              /app/code/local/Biztech/Trackorder
+/src/app/design/frontend/default/default/layout/trackorder.xml      /app/design/frontend/default/default/layout/trackorder.xml
+/src/app/design/frontend/default/default/template/trackorder        /app/design/frontend/default/default/template/trackorder
+/src/app/etc/modules/Biztech_Trackorder.xml                         /app/etc/modules/Biztech_Trackorder.xml
+/src/skin/frontend/default/default/trackorder                       /skin/frontend/default/default/trackorder

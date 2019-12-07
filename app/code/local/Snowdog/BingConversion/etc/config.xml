@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_BingConversion>
+            <version>0.1.0</version>
+        </Snowdog_BingConversion>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <snowbingconversion>
+                    <file>bingconversion.xml</file>
+                </snowbingconversion>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <helpers>
+            <snowbingconversion>
+                <class>Snowdog_BingConversion_Helper</class>
+            </snowbingconversion>
+        </helpers>
+        <blocks>
+            <snowbingconversion>
+                <class>Snowdog_BingConversion_Block</class>
+            </snowbingconversion>
+        </blocks>
+    </global>
+</config> 

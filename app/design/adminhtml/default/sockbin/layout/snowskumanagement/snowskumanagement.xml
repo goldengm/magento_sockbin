@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<layout>
+    <snowskumanagement_inject_tab>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>skumanagement</name>
+                <block>snowskumanagement/adminhtml_catalog_product_edit_tab</block>
+            </action>
+        </reference>
+    </snowskumanagement_inject_tab>
+
+    <adminhtml_catalog_product_edit>
+        <update handle="snowskumanagement_inject_tab"/>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_new>
+        <update handle="snowskumanagement_inject_tab" />
+    </adminhtml_catalog_product_new>
+    
+    <adminhtml_catalog_product_skumanagement>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="snowskumanagement/adminhtml_catalog_product_edit_tab_skumanagement" name="catalog.product.edit.tab.skumanagement"/>
+            <block type="adminhtml/widget_grid_serializer" name="skumanagement_grid_serializer">
+                <reference name="skumanagement_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.skumanagement</grid_block_name>
+                        <data_callback>getSelectedSkumanagementProducts</data_callback>
+                        <hidden_input_name>links[skumanagement]</hidden_input_name>
+                        <reload_param_name>products_skumanagement</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_skumanagement>
+
+    <adminhtml_catalog_product_skumanagementgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="snowskumanagement/adminhtml_catalog_product_edit_tab_skumanagement" name="catalog.product.edit.tab.skumanagement"/>
+        </block>
+    </adminhtml_catalog_product_skumanagementgrid>
+
+    <adminhtml_skumanagement_index>
+        <reference name="content">
+            <block type="snowskumanagement/adminhtml_skumanagement_edit" name="snowskumanagement_skumanagement" />
+        </reference>
+    </adminhtml_skumanagement_index>
+</layout>

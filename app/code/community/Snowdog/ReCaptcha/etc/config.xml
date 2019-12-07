@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_ReCaptcha>
+            <version>0.1.0</version>
+        </Snowdog_ReCaptcha>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <snowrecaptcha>
+                    <file>snowrecaptcha/snowrecaptcha.xml</file>
+                </snowrecaptcha>
+            </updates>
+        </layout>
+        <routers>
+            <contacts>
+                <args>
+                    <modules>
+                        <Snowdog_ReCaptcha before="Mage_Contacts">Snowdog_ReCaptcha_Contacts</Snowdog_ReCaptcha>
+                    </modules>
+                </args>
+            </contacts>
+        </routers>
+    </frontend>
+
+    <global>
+        <helpers>
+            <snowrecaptcha>
+                <class>Snowdog_ReCaptcha_Helper</class>
+            </snowrecaptcha>
+        </helpers>
+    </global>
+</config>

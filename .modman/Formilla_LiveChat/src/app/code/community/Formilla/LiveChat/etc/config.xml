@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Formilla_LiveChat>
+            <version>1.0.0.0</version>
+        </Formilla_LiveChat>
+    </modules>
+    <global>
+        <blocks>
+            <livechat>
+                <class>Formilla_LiveChat_Block</class>
+            </livechat>
+        </blocks>
+        <helpers>
+            <livechat>
+                <class>Formilla_LiveChat_Helper</class>
+            </livechat>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <livechat>
+                    <file>formillalivechat.xml</file>
+                </livechat>
+            </updates>
+        </layout>
+    </frontend>
+</config>

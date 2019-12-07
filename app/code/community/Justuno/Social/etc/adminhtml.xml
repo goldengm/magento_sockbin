@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<justuno translate="title" module="social">
+											<title>Justuno</title>
+											<sort_order>0</sort_order>
+										</justuno>
+										<dashboard translate="title" module="social">
+											<title>Dashboard</title>
+											<sort_order>1</sort_order>
+										</dashboard>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

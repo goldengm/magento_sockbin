@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webtex
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled
+ * with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.webtexsoftware.com/LICENSE.txt
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@webtexsoftware.com and we will send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to http://www.webtexsoftware.com for more information,
+ * or contact us through this email: info@webtexsoftware.com.
+ *
+ * @category   Webtex
+ * @package    Webtex_Fba
+ * @copyright  Copyright (c) 2011 Webtex Solutions, LLC (http://www.webtexsoftware.com/)
+ * @license    http://www.webtexsoftware.com/LICENSE.txt End-User License Agreement
+ */
+-->
+<config>
+    <modules>
+        <Webtex_Fba>
+            <version>2.3.3</version>
+        </Webtex_Fba>
+    </modules>
+    <frontend>
+        <!--<events>-->
+            <!--<checkout_cart_product_add_after>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>cartProductAddAfter</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</checkout_cart_product_add_after>-->
+        <!--</events>-->
+    </frontend>
+    <!--<crontab>-->
+        <!--<jobs>-->
+            <!--<fba_refresh>-->
+                <!--<run>-->
+                    <!--<model>fba/observer::refresh</model>-->
+                <!--</run>-->
+            <!--</fba_refresh>-->
+            <!--<send_queue>-->
+                <!--<run>-->
+                    <!--<model>mws/queue::processQueue</model>-->
+                <!--</run>-->
+            <!--</send_queue>-->
+            <!--<fba_orders>-->
+                <!--<run>-->
+                    <!--<model>fba/observer::refreshOrders</model>-->
+                <!--</run>-->
+            <!--</fba_orders>-->
+            <!--<fba_query_clean>-->
+                <!--<schedule>-->
+                    <!--<cron_expr>0 0 1 * *</cron_expr>-->
+                <!--</schedule>-->
+                <!--<run>-->
+                    <!--<model>fba/observer::clearQueryTable</model>-->
+                <!--</run>-->
+            <!--</fba_query_clean>-->
+        <!--</jobs>-->
+    <!--</crontab>-->
+    <global>
+        <models>
+            <!--<shipping>-->
+                <!--<rewrite>-->
+                    <!--<shipping>Webtex_Fba_Model_Shipping</shipping>-->
+                <!--</rewrite>-->
+            <!--</shipping>-->
+            <mws>
+                <class>Webtex_Fba_Model_Mws</class>
+                <resourceModel>mws_resource</resourceModel>
+            </mws>
+            <mws_resource>
+                <class>Webtex_Fba_Model_Mws_Resource</class>
+                <entities>
+                    <query>
+                        <table>fba_mws_queries</table>
+                    </query>
+                    <product>
+                        <table>fba_mws_product</table>
+                    </product>
+                    <tracking>
+                        <table>fba_mws_tracking</table>
+                    </tracking>
+                    <marketplace>
+                        <table>fba_mws_marketplace</table>
+                    </marketplace>
+                    <shipping>
+                        <table>fba_mws_shipping</table>
+                    </shipping>
+                </entities>
+            </mws_resource>
+            <fba>
+                <class>Webtex_Fba_Model</class>
+            </fba>
+        </models>
+        <resources>
+            <fba_setup>
+                <setup>
+                    <module>Webtex_Fba</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </fba_setup>
+            <fba_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </fba_write>
+            <fba_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </fba_read>
+        </resources>
+        <blocks>
+            <fba>
+                <class>Webtex_Fba_Block</class>
+            </fba>
+        </blocks>
+        <helpers>
+            <fba>
+                <class>Webtex_Fba_Helper</class>
+            </fba>
+        </helpers>
+        <!--<events>-->
+            <!--<sales_order_save_before>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>orderSaveBefore</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</sales_order_save_before>-->
+            <!--<catalog_product_save_after>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>productSaveAfter</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</catalog_product_save_after>-->
+            <!--<sales_order_place_after>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>orderPlaceAfter</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</sales_order_place_after>-->
+            <!--<controller_action_predispatch_checkout_onepage_index>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>orderPlaceBefore</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</controller_action_predispatch_checkout_onepage_index>-->
+        <!--</events>-->
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <fba>
+                    <file>webtex/fba.xml</file>
+                </fba>
+            </updates>
+        </layout>
+        <!--<events>-->
+            <!--<sales_order_grid_collection_load_before>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>addExtraFieldsInOrderGrid</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</sales_order_grid_collection_load_before>-->
+            <!--<core_block_abstract_prepare_layout_before>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>addColumnsInGrid</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</core_block_abstract_prepare_layout_before>-->
+            <!--<catalog_product_collection_load_before>-->
+                <!--<observers>-->
+                    <!--<fba>-->
+                        <!--<class>fba/observer</class>-->
+                        <!--<method>addAttrToProductGridFilter</method>-->
+                    <!--</fba>-->
+                <!--</observers>-->
+            <!--</catalog_product_collection_load_before>-->
+        <!--</events>-->
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <fba before="Mage_Adminhtml">Webtex_Fba</fba>
+                    </modules>
+                </args>
+            </adminhtml>
+            <webtex_fba>
+                <use>admin</use>
+                <args>
+                    <module>Webtex_Fba</module>
+                    <frontName>fba</frontName>
+                </args>
+            </webtex_fba>
+        </routers>
+    </admin>
+    <default>
+        <fba>
+            <mws_settings>
+                <shipping_title>Fulfillment by Amazon</shipping_title>
+            </mws_settings>
+            <different_marketplaces>
+                <mode>0</mode>
+                <frontend_message>You can not add this product because products in your shopping cart have different shipping methods!</frontend_message>
+            </different_marketplaces>
+        </fba>
+        <!--<fba>-->
+            <!--<crontasks>-->
+                <!--<resendquery>3</resendquery>-->
+                <!--<checkorder>3</checkorder>-->
+                <!--<send_queue>5</send_queue>-->
+            <!--</crontasks>-->
+        <!--</fba>-->
+        <!--<carriers>-->
+            <!--<fbashipping>-->
+                <!--<active>1</active>-->
+                <!--<model>fba/shipping_carrier_fbashipping</model>-->
+                <!--<title>Fulfillment by Amazon</title>-->
+            <!--</fbashipping>-->
+        <!--</carriers>-->
+    </default>
+</config>

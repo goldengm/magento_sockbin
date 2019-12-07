@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_PlusMinus>
+            <version>0.1.0</version>
+        </Snowdog_PlusMinus>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <snowplusminus>
+                    <file>snowplusminus/plusminus.xml</file>
+                </snowplusminus>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <helpers>
+            <snowplusminus>
+                <class>Snowdog_PlusMinus_Helper</class>
+            </snowplusminus>
+        </helpers>
+    </global>
+</config>

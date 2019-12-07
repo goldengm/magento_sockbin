@@ -1,0 +1,58 @@
+<script type="text/javascript">
+    //<![CDATA[
+    var quoteBaseGrandTotal = <?php echo (float)$this->getQuoteBaseGrandTotal(); ?>;
+    var checkQuoteBaseGrandTotal = quoteBaseGrandTotal;
+    var lastPrice;
+    //]]>
+</script>
+<div id="payment-method" class="firecheckout-section">
+    <div class="block-title">
+        <span>
+            <strong><?php echo $this->__('Choose Your Payment Method'); ?>:</strong>
+        </span>
+    </div>
+    <div class="tool-tip" id="payment-tool-tip" style="display:none;">
+        <div class="btn-close">
+            <a href="#" 
+               id="payment-tool-tip-close"
+               title="<?php echo $this->__('Close') ?>">
+                X
+            </a>
+        </div>
+        <div class="tool-tip-content">
+            <img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>"
+                 alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>"
+                 title="<?php echo $this->__('Card Verification Number Visual Reference') ?>" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        function toggleToolTip(event) {
+            Event.stop(event);
+
+            if (!$('payment-tool-tip')) {
+                return;
+            }
+
+            var tooltip = $('payment-tool-tip');
+
+            tooltip.toggle();
+        }
+
+        if ($('payment-tool-tip-close')) {
+            Event.observe($('payment-tool-tip-close'), 'click', toggleToolTip);
+        }
+
+        var payment = new Payment('payment-method');
+        //]]>
+    </script>
+    <?php echo $this->getChildChildHtml('methods_additional', '', true, true) ?>
+    <div id="checkout-payment-method-load">
+        <?php echo $this->getChildHtml('methods') ?>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        payment.currentMethod = "<?php echo $this->getChild('methods')->getSelectedMethodCode() ?>";
+        //]]>
+    </script>
+</div>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="minicart_head">
+            <action method="setTemplate">
+                 <template>sideminicart/checkout/cart/minicart.phtml</template>
+            </action>
+        </reference>
+        <reference name="minicart_content">
+            <action method="setTemplate">
+                 <template>sideminicart/checkout/cart/minicart/items.phtml</template>
+            </action>
+            <block type="cms/block" name="minicart-top-msg">
+                <action method="setBlockId"><block_id>minicart-top-msg</block_id></action>
+            </block>
+             <block type="checkout/cart_coupon" name="checkout.cart.coupon" as="coupon" template="sideminicart/checkout/cart/coupon.phtml"/>
+             <block type="checkout/cart_totals" name="checkout.cart.totals" as="totals" template="sideminicart/checkout/cart/totals.phtml"/>
+            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>sideminicart/checkout/cart/minicart/default.phtml</template></action>
+            <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>sideminicart/checkout/cart/minicart/default.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>sideminicart/checkout/cart/minicart/default.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>sideminicart/checkout/cart/minicart/default.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addItem"  ifconfig="side_minicart/general/jquery_enabled">
+                <type>skin_js</type>
+                <name>js/side_minicart/jquery-2.1.1.js</name>
+                <params/>
+            </action>
+            <action method="addItem"  ifconfig="side_minicart/general/module_enabled">
+                <type>skin_js</type>
+                <name>js/side_minicart/main.js</name>
+                <params/>
+            </action>
+            <action method="addItem"  ifconfig="side_minicart/general/module_enabled">
+                <type>skin_css</type>
+                <name>css/side_minicart.css</name>
+            </action>
+        </reference>
+    </default>
+</layout>

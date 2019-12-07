@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <customer>
+            <children>
+                <snowsuccessregistration translate="title" module="snowsuccessregistration">
+                    <sort_order>10</sort_order>
+                    <title>Customer Guest Orders</title>
+                    <action>adminhtml/guestorders/index</action>
+                </snowsuccessregistration>
+            </children>
+        </customer>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <customer>
+                        <children>
+                            <snowsuccessregistration translate="title" module="snowsuccessregistration">
+                                <title>Customer Guest Orders</title>
+                            </snowsuccessregistration>
+                        </children>
+                    </customer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

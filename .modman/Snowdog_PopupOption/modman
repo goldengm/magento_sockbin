@@ -1,0 +1,11 @@
+/src/app/code/community/Snowdog/PopupOption /app/code/community/Snowdog/PopupOption
+/src/app/design/frontend/base/default/layout/snowpopup.xml /app/design/frontend/base/default/layout/snowpopup.xml
+/src/app/design/frontend/base/default/template/newsletter/mailchimpForm.phtml /app/design/frontend/base/default/template/newsletter/mailchimpForm.phtml
+/src/app/design/frontend/base/default/template/newsletter/mailchimpFormMobile.phtml /app/design/frontend/base/default/template/newsletter/mailchimpFormMobile.phtml
+/src/app/etc/modules/Snowdog_PopupOption.xml /app/etc/modules/Snowdog_PopupOption.xml
+/src/js/mailchimp/jquery.form-n-validate.js /js/mailchimp/jquery.form-n-validate.js
+/src/js/mailchimp/jquery.min.js /js/mailchimp/jquery.min.js
+/src/js/mailchimp/mailchimp_form.js /js/mailchimp/mailchimp_form.js
+/src/js/mailchimp/mailchimp_form_dropdown.js /js/mailchimp/mailchimp_form_dropdown.js
+/src/skin/frontend/base/default/css/snowpopup.css /skin/frontend/base/default/css/snowpopup.css
+/src/skin/frontend/base/default/images/close_pop_pup.png /skin/frontend/base/default/images/close_pop_pup.png

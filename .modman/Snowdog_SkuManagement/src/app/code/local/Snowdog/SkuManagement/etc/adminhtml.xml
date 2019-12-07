@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <system>
+            <children>
+                <convert translate="title">
+                    <children>
+                        <import_skumanagement translate="title" module="snowskumanagement">
+                            <title>Import Sku Management</title>
+                            <action>adminhtml/skumanagement</action>
+                            <sort_order>100</sort_order>
+                        </import_skumanagement>
+                    </children>
+                </convert>
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <convert module="snowskumanagement">
+                                <children>
+                                    <import_skumanagement translate="title">
+                                        <title>Import Sku Management</title>
+                                        <sort_order>100</sort_order>
+                                    </import_skumanagement>
+                                </children>
+                            </convert>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
